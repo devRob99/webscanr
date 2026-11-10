@@ -1,0 +1,85 @@
+{
+  "_comment": "TEMPLATE. Copy to providers.json. 'approved_providers' lists EXTERNAL providers the organization has approved in writing (e.g. \"hackertarget\"). It is empty by default, so every external provider returns mock data. Live mode additionally needs WEBSCAN_LIVE_MODE=true in .env and the --live flag. Verify HackerTarget quota and rate limits against your account before changing them.",
+  "approved_providers": [],
+  "enabled_providers": [
+    "hackertarget",
+    "quantro",
+    "local"
+  ],
+  "hackertarget": {
+    "base_url": "https://api.hackertarget.com",
+    "endpoints": [
+      "nmap",
+      "httpheaders",
+      "dnslookup",
+      "hostsearch",
+      "reverseiplookup"
+    ],
+    "wip_endpoints_in_mock": [
+      "nikto",
+      "openvas"
+    ],
+    "min_delay_seconds": 2.0,
+    "max_concurrent": 1,
+    "daily_quota": 50,
+    "timeout_seconds": 30,
+    "max_retries": 4,
+    "backoff_base_seconds": 2.0,
+    "backoff_max_seconds": 60.0
+  },
+  "local": {
+    "checks": [
+      "headers",
+      "tls",
+      "cookies",
+      "email",
+      "donation",
+      "privacy",
+      "exposed_files"
+    ],
+    "request_delay_seconds": 1.0,
+    "timeout_seconds": 10,
+    "cert_expiry_warning_days": 30,
+    "dkim_selectors": [
+      "default",
+      "google",
+      "selector1",
+      "selector2",
+      "k1",
+      "mail"
+    ],
+    "exposed_paths": [
+      "/.git/HEAD",
+      "/.env",
+      "/backup.zip",
+      "/backup.sql",
+      "/wp-config.php.bak"
+    ]
+  },
+  "quantro": {
+    "field_mapping": {
+      "findings_path": "findings",
+      "fields": {
+        "vulnerability_name": "title",
+        "cve_id": "cve",
+        "base_severity": "cvss",
+        "severity_label": "severity",
+        "host": "host",
+        "evidence": "url",
+        "description": "description",
+        "has_known_exploit": "exploit_available",
+        "references": "references"
+      },
+      "severity_label_scores": {
+        "critical": 9.5,
+        "high": 8.0,
+        "medium": 5.5,
+        "low": 3.0,
+        "info": 0.0
+      }
+    }
+  },
+  "stubs": {
+    "lookalike_max_variants": 40
+  }
+}

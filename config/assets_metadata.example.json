@@ -1,0 +1,53 @@
+{
+  "_comment": "TEMPLATE with placeholder data only. Copy to assets_metadata.json (gitignored). 'alias' is what appears in reports and logs instead of the raw hostname or IP. exposure_tier: public | internal | staging. asset_criticality: 1 (low) to 3 (critical). platform: wordpress | wix | squarespace | google_sites | custom.",
+  "organization_alias": "Example Community Nonprofit",
+  "assets": [
+    {
+      "alias": "donor-portal",
+      "description": "Online donation portal (handles donor names, emails, and payments)",
+      "hostnames": ["donate.example.org"],
+      "ips": ["203.0.113.10"],
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "platform": "wordpress",
+      "donation_paths": ["/donate/"]
+    },
+    {
+      "alias": "main-website",
+      "description": "Main public website and organization email domain",
+      "hostnames": ["www.example.org", "example.org"],
+      "ips": ["203.0.113.11"],
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "platform": "wix",
+      "email_domain": "example.org"
+    },
+    {
+      "alias": "archived-brochure-site",
+      "description": "Archived brochure site from a past campaign (no longer updated)",
+      "hostnames": ["archive.example.org"],
+      "ips": ["203.0.113.12"],
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "platform": "custom"
+    },
+    {
+      "alias": "staging-site",
+      "description": "Staging copy of the website used to test changes",
+      "hostnames": ["staging.example.org"],
+      "ips": ["203.0.113.20"],
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "platform": "custom"
+    },
+    {
+      "alias": "file-server",
+      "description": "Internal file server (grant records, donor lists, HR files)",
+      "hostnames": ["files.target.local"],
+      "ips": ["10.0.0.5"],
+      "exposure_tier": "internal",
+      "asset_criticality": 3,
+      "platform": "custom"
+    }
+  ]
+}

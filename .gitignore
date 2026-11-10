@@ -1,0 +1,26 @@
+# Secrets and real organization data -- never commit
+.env
+config/*.json
+!config/*.example.json
+
+# Generated output and logs (may contain sensitive scan results)
+output/
+logs/
+
+# Refreshed full reference snapshots (re-downloadable; bundled *_snapshot files stay tracked)
+data/reference/kev_full.json
+data/reference/epss_full.csv.gz
+data/reference/GeoLite2-*.mmdb
+
+# Python
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.DS_Store

@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webscan"
+version = "0.1.0"
+description = "Vulnerability scanning and prioritization prototype for nonprofits (capstone project)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "rich>=13.7",
+    "typer>=0.12",
+    "jinja2>=3.1",
+    "dnspython>=2.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+pdf = ["weasyprint>=62"]
+dashboard = ["fastapi>=0.110", "uvicorn>=0.29", "httpx>=0.27"]
+
+[project.scripts]
+webscan = "webscan.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+webscan = ["knowledge/*.json", "reporting/templates/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S"]
+ignore = [
+    "E501",  # long lines are tolerated; keep them readable rather than wrapped awkwardly
+    "S101",  # asserts are fine in tests and for invariants
+    "B008",  # typer uses function calls in defaults
+    "S311",  # random is used only for retry jitter, not for security
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S"]
+"scripts/*" = ["S310"]

@@ -1,0 +1,33 @@
+{
+  "_comment": "TEMPLATE with placeholder data only. Copy to allowed_targets.json (gitignored) and list ONLY targets the organization has authorized in writing. WebScan refuses to run if this file is missing, malformed, or empty.",
+  "organization": "Example Community Nonprofit",
+  "allow_wildcard_entries": false,
+  "domains": [
+    "example.org",
+    "www.example.org",
+    "donate.example.org",
+    "archive.example.org",
+    "staging.example.org"
+  ],
+  "ips": [
+    "203.0.113.10",
+    "203.0.113.11",
+    "203.0.113.12",
+    "203.0.113.20"
+  ],
+  "cidrs": [
+    "203.0.113.0/27"
+  ],
+  "local_only": {
+    "_comment": "Internal assets. These may be assessed only by approved local tools or partner reports (Quantro). They are never sent to HackerTarget or any other external provider.",
+    "domains": [
+      "files.target.local"
+    ],
+    "ips": [
+      "10.0.0.5"
+    ],
+    "cidrs": [
+      "10.0.0.0/29"
+    ]
+  }
+}
