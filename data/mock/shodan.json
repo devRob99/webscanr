@@ -1,0 +1,29 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "shodan",
+  "responses": {
+    "203.0.113.12": {
+      "ip_str": "203.0.113.12",
+      "ports": [
+        21,
+        80
+      ],
+      "vulns": [
+        "CVE-2021-41773"
+      ],
+      "hostnames": [
+        "archive.example.org"
+      ]
+    },
+    "203.0.113.10": {
+      "ip_str": "203.0.113.10",
+      "ports": [
+        22,
+        80,
+        443,
+        3306
+      ],
+      "vulns": []
+    }
+  }
+}

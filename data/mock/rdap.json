@@ -1,0 +1,21 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "rdap",
+  "responses": {
+    "example.org": {
+      "objectClassName": "domain",
+      "ldhName": "EXAMPLE.ORG",
+      "_mock_today": "2026-10-05T00:00:00Z",
+      "events": [
+        {
+          "eventAction": "registration",
+          "eventDate": "2009-10-26T00:00:00Z"
+        },
+        {
+          "eventAction": "expiration",
+          "eventDate": "2026-10-26T00:00:00Z"
+        }
+      ]
+    }
+  }
+}

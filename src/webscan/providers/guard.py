@@ -54,6 +54,13 @@ class ExternalCallGuard:
             return False, f"provider '{provider}' is not listed in approved_providers in providers.json"
         return True, "live mode enabled and provider approved"
 
+    def authorize_provider(self, provider: str, third_party: bool = True) -> None:
+        """For calls that carry no target data at all (for example a CVE lookup at NVD)."""
+        allowed, reason = self.live_allowed(provider, third_party)
+        if not allowed:
+            self.audit.log("live_call_blocked", provider=provider, mode="mock", status="blocked", detail=reason)
+            raise LiveModeError(f"Live call blocked: {reason}")
+
     def authorize(self, provider: str, target: str, third_party: bool = True) -> ScopeDecision:
         """Raise unless a live call to/about ``target`` by ``provider`` is permitted."""
         allowed, reason = self.live_allowed(provider, third_party)

@@ -1,0 +1,18 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "geoip",
+  "responses": {
+    "203.0.113.10": {
+      "country": "US",
+      "city": "Example City",
+      "org": "Example Hosting LLC",
+      "asn": 64500
+    },
+    "203.0.113.12": {
+      "country": "US",
+      "city": "Example City",
+      "org": "Example Budget Hosting",
+      "asn": 64501
+    }
+  }
+}

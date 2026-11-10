@@ -1,0 +1,46 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "reputation",
+  "responses": {
+    "archive.example.org": {
+      "safebrowsing": {
+        "matches": [
+          {
+            "threatType": "SOCIAL_ENGINEERING",
+            "platformType": "ANY_PLATFORM",
+            "threat": {
+              "url": "http://archive.example.org/"
+            }
+          }
+        ]
+      },
+      "virustotal": {
+        "data": {
+          "attributes": {
+            "last_analysis_stats": {
+              "malicious": 3,
+              "suspicious": 1,
+              "harmless": 70,
+              "undetected": 15
+            }
+          }
+        }
+      }
+    },
+    "donate.example.org": {
+      "safebrowsing": {},
+      "virustotal": {
+        "data": {
+          "attributes": {
+            "last_analysis_stats": {
+              "malicious": 0,
+              "suspicious": 0,
+              "harmless": 80,
+              "undetected": 9
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "lookalike",
+  "responses": {
+    "example.org": {
+      "resolving": [
+        "examp1e.org",
+        "exmaple.org",
+        "example.co"
+      ]
+    }
+  }
+}

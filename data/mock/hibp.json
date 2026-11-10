@@ -1,0 +1,18 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "hibp",
+  "responses": {
+    "example.org": {
+      "alias1": [
+        "ExampleBreach2019",
+        "SampleForum2021"
+      ],
+      "alias2": [
+        "ExampleBreach2019"
+      ],
+      "alias3": [
+        "DemoShop2023"
+      ]
+    }
+  }
+}

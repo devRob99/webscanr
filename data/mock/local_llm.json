@@ -1,0 +1,10 @@
+{
+  "_comment": "MOCK data for a WIP provider. Placeholder values only; not captured from the real API. Shape follows the provider's public documentation and must be verified before live use.",
+  "provider": "local_llm",
+  "responses": {
+    "default": {
+      "en": "(Mock local-model output) This finding describes a weakness in one of your systems. It matters because it could be used to reach donor or organization data. Ask the person who maintains the system to review the technical details and apply the vendor's recommended fix.",
+      "es": "(Salida simulada del modelo local) Este hallazgo describe una debilidad en uno de sus sistemas. Es importante porque podría usarse para acceder a datos de donantes o de la organización. Pida a quien mantiene el sistema que revise los detalles técnicos y aplique la corrección recomendada por el fabricante."
+    }
+  }
+}
