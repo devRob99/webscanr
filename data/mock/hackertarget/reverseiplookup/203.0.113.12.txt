@@ -1,0 +1,6 @@
+archive.example.org
+shop.example.com
+blog.example.com
+www.example.net
+forum.example.net
+static.example.com

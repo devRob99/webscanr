@@ -1,0 +1,5 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,NVT Name,Summary,CVEs,Solution
+203.0.113.20,staging.example.org,22,tcp,9.8,High,OpenSSH < 9.3p2 Remote Code Execution Vulnerability,"The PKCS#11 feature in ssh-agent has an insufficiently trustworthy search path, leading to remote code execution if an agent is forwarded to an attacker-controlled system.",CVE-2023-38408,Update to version 9.3p2 or later.
+203.0.113.20,staging.example.org,80,tcp,6.1,Medium,jQuery < 3.5.0 Multiple XSS Vulnerabilities,"The installed jQuery library passes untrusted HTML to DOM manipulation methods, which may execute untrusted code.","CVE-2020-11022,CVE-2020-11023",Update jQuery to version 3.5.0 or later.
+203.0.113.20,staging.example.org,23,tcp,4.8,Medium,Telnet Unencrypted Cleartext Login,The remote host is running a Telnet service that allows cleartext logins over unencrypted connections.,,Replace Telnet with SSH and disable the Telnet service.
+203.0.113.20,staging.example.org,general,tcp,not-a-number,Low,Malformed example row,This row has an unreadable score and must be skipped without stopping ingestion.,,None

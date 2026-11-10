@@ -1,0 +1,8 @@
+Address       = 203.0.113.0
+Network       = 203.0.113.0 / 27
+Netmask       = 255.255.255.224
+Broadcast     = 203.0.113.31
+Wildcard Mask = 0.0.0.31
+Hosts Bits    = 5
+Max. Hosts    = 30   (2^5 - 2)
+Host Range    = { 203.0.113.1 - 203.0.113.30 }

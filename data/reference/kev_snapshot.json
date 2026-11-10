@@ -1,0 +1,19 @@
+{
+  "_comment": "Curated SUBSET of the CISA Known Exploited Vulnerabilities catalog, bundled so scoring and the demo work offline. Trimmed to the fields WebScan uses. It is NOT the full catalog: run `webscan refresh-reference-data` to download the authoritative file.",
+  "title": "CISA Catalog of Known Exploited Vulnerabilities (bundled subset)",
+  "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+  "vulnerabilities": [
+    {"cveID": "CVE-2014-0160", "vulnerabilityName": "OpenSSL Information Disclosure Vulnerability (Heartbleed)"},
+    {"cveID": "CVE-2017-0143", "vulnerabilityName": "Microsoft Windows SMBv1 Remote Code Execution Vulnerability"},
+    {"cveID": "CVE-2017-0144", "vulnerabilityName": "Microsoft SMBv1 Remote Code Execution Vulnerability (EternalBlue)"},
+    {"cveID": "CVE-2017-0145", "vulnerabilityName": "Microsoft SMBv1 Remote Code Execution Vulnerability"},
+    {"cveID": "CVE-2019-0708", "vulnerabilityName": "Microsoft Remote Desktop Services Remote Code Execution Vulnerability (BlueKeep)"},
+    {"cveID": "CVE-2019-11043", "vulnerabilityName": "PHP FastCGI Process Manager (FPM) Buffer Overflow Vulnerability"},
+    {"cveID": "CVE-2020-11023", "vulnerabilityName": "JQuery Cross-Site Scripting (XSS) Vulnerability"},
+    {"cveID": "CVE-2020-25213", "vulnerabilityName": "WordPress File Manager Plugin Remote Code Execution Vulnerability"},
+    {"cveID": "CVE-2021-41773", "vulnerabilityName": "Apache HTTP Server Path Traversal Vulnerability"},
+    {"cveID": "CVE-2021-42013", "vulnerabilityName": "Apache HTTP Server Path Traversal Vulnerability"},
+    {"cveID": "CVE-2021-44228", "vulnerabilityName": "Apache Log4j2 Remote Code Execution Vulnerability"},
+    {"cveID": "CVE-2024-4577", "vulnerabilityName": "PHP-CGI OS Command Injection Vulnerability"}
+  ]
+}
