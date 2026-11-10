@@ -28,6 +28,7 @@
 | `audit/logger.py` | Append-only JSON Lines audit log. |
 | `store.py`, `history.py` | Local state between commands; SQLite run history and change detection. |
 | `dashboard/` | Optional read-only FastAPI dashboard. |
+| `web/` | Local web UI. `api.py` (JSON API under `/api`), `ui.py` + `static/` (front end), `scanner.py` (background scans that call the local checks and the pipeline), `verification.py`, `netguard.py` (SSRF checks), `fetcher.py` (pinned, throttled, cancellable transport built on `LiveFetcher`), `ratelimit.py`, `storage.py`. |
 
 ## Data flow
 

@@ -92,6 +92,7 @@ Live code is written from public documentation and has never been run.
 |---|---|---|
 | Scan history (SQLite) and change detection (`webscan changes`) | 🟡 | Detects new, resolved, and worsened findings and writes a local alert file. No certificate/domain expiry trend, no email alerts. |
 | Web dashboard (`webscan dashboard`) | 🟡 | Read-only overview, grade trend, report viewer with language toggle. Cannot start scans or edit config. |
+| Web UI (`webscan web`) | 🟡 | Domain verification, scan, results, history, compare, export, demo mode. Real scans were exercised against fake transport in tests and against localhost only; never against a public site. English only. No user accounts: it is a single-user tool bound to loopback. |
 | Role-based access control | 🚧 | Only bearer tokens mapped to role names; all roles see the same read-only pages. |
 | Scheduled rescans | 🚧 | Not started (use cron / Task Scheduler with `webscan scan --all` for now). |
 | External push alerts (ntfy.sh etc.) | 🚧 | Not started; would need organization approval and redacted content. |
