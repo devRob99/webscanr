@@ -8,7 +8,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass, field
-from functools import lru_cache
+from functools import cache, lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -43,7 +43,7 @@ class Explanation:
     from_knowledge_base: bool = True
 
 
-@lru_cache(maxsize=None)
+@cache
 def _load(name: str) -> dict[str, Any]:
     with (KNOWLEDGE_DIR / f"{name}.json").open(encoding="utf-8") as fh:
         return json.load(fh)
@@ -93,7 +93,7 @@ def match(
     return None
 
 
-@lru_cache(maxsize=None)
+@cache
 def _keyword_re(keyword: str) -> re.Pattern[str]:
     # Whole-word match, so "rdp" does not fire on "wordpress" or "ftp" on "sftp".
     return re.compile(r"(?<![a-z0-9])" + re.escape(keyword) + r"(?![a-z0-9])")

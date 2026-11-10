@@ -1,0 +1,768 @@
+{
+  "ui": {
+    "app_title": "Resumen de seguridad de WebScan",
+    "mock_banner": "DEMOSTRACIÓN / DATOS SIMULADOS: no se realizó ningún escaneo real",
+    "live_banner": "Los resultados incluyen datos de escaneos reales",
+    "the_organization": "La organización",
+    "overall_grade": "Calificación general",
+    "findings_total": "Hallazgos",
+    "pri_Critical": "Crítico",
+    "pri_High": "Alto",
+    "pri_Medium": "Medio",
+    "pri_Low": "Bajo",
+    "pri_Info": "Informativo",
+    "col_rank": "N.º",
+    "col_priority": "Prioridad",
+    "col_risk": "Riesgo",
+    "col_cvss": "CVSS",
+    "col_asset": "Sistema",
+    "col_finding": "Hallazgo",
+    "col_signals": "Señales",
+    "col_why": "Cálculo",
+    "col_fix": "Solución",
+    "col_clears": "Resuelve",
+    "col_assets": "Sistemas",
+    "col_effort": "Esfuerzo",
+    "col_total_risk": "Riesgo eliminado",
+    "col_top_risk": "Riesgo máx.",
+    "col_count": "Cantidad",
+    "heading_summary": "Hallazgos por prioridad",
+    "heading_exec_summary": "Resumen ejecutivo",
+    "heading_compare": "Por qué importa priorizar",
+    "heading_top_findings": "Principales hallazgos según el riesgo real",
+    "heading_batches": "Grupos de remediación (una solución, varios hallazgos)",
+    "heading_fix_first": "Corrija primero estas 3 cosas",
+    "heading_warnings": "Notas",
+    "compare_intro": "Un escáner que ordena solo por la severidad CVSS pondría primero la columna izquierda. WebScan también considera qué tan expuesto está el sistema, qué tan importante es y si los atacantes ya están aprovechando la falla.",
+    "compare_cvss": "Ordenado solo por CVSS",
+    "compare_webscan": "Ordenado por riesgo según WebScan",
+    "compare_spotlight": "Ejemplo: «{low_name}» en {low_asset} tiene una puntuación CVSS menor ({low_cvss}), pero ocupa el puesto n.º {low_rank} porque se sabe que los atacantes la aprovechan y se encuentra en un sistema público e importante. «{high_name}» en {high_asset} tiene CVSS {high_cvss}, pero ocupa el puesto n.º {high_rank} porque ese sistema está menos expuesto y es menos importante.",
+    "signal_kev": "KEV",
+    "signal_exploit": "Exploit",
+    "signal_epss": "EPSS",
+    "effort_quick": "Rápido",
+    "effort_moderate": "Moderado",
+    "effort_involved": "Considerable",
+    "exposure_public": "público",
+    "exposure_staging": "pruebas",
+    "exposure_internal": "interno",
+    "criticality_1": "importancia baja",
+    "criticality_2": "importancia media",
+    "criticality_3": "importancia crítica",
+    "files_written": "Archivos generados",
+    "unlisted_asset": "no figura en el inventario de activos; se usaron valores conservadores",
+    "no_plain_language": "Todavía no hay una explicación en lenguaje sencillo para este hallazgo. La descripción original del escáner aparece en los detalles técnicos.",
+    "generic_why": "Cualquier debilidad en un sistema que guarda datos de donantes o de la organización puede usarse para robar información o interrumpir su trabajo.",
+    "generic_fix": "Comparta los detalles técnicos que aparecen abajo con la persona o empresa que mantiene este sistema y pregúntele cómo piensa corregirlo.",
+    "summary_none": "{org} no tiene hallazgos de seguridad abiertos en esta evaluación. Mantenga el software actualizado y repita el escaneo con regularidad.",
+    "summary_counts": "{org} tiene {total} hallazgos de seguridad abiertos en {assets} sistemas: {critical} críticos, {high} altos, {medium} medios y {low} bajos o informativos.",
+    "summary_kev": "{kev} de ellos corresponden a fallas que se sabe que los atacantes están aprovechando activamente, por lo que deben atenderse primero.",
+    "summary_grade_A": "En general, la organización se encuentra en buen estado; lo que queda es mantenimiento de rutina.",
+    "summary_grade_B": "En general, la organización se encuentra en un estado bastante bueno, con algunos puntos que conviene atender pronto.",
+    "summary_grade_C": "En general, el riesgo es moderado: no hay una emergencia, pero conviene programar varias correcciones en las próximas semanas.",
+    "summary_grade_D": "En general, el riesgo es elevado. Al menos un problema grave requiere atención inmediata.",
+    "summary_grade_F": "En general, el riesgo es alto. Varios problemas graves requieren atención inmediata, comenzando por la lista breve que aparece a continuación.",
+    "summary_top": "Completar las {n} primeras soluciones de la lista eliminaría aproximadamente el {share}% del riesgo total.",
+    "report_title": "Informe de evaluación de seguridad",
+    "report_subtitle": "Hallazgos priorizados y soluciones recomendadas",
+    "prepared_for": "Preparado para",
+    "generated_on": "Fecha de generación",
+    "confidential_notice": "Confidencial. Preparado para la dirección de la organización. No lo comparta fuera de la organización sin autorización.",
+    "data_note_mock": "Este informe se generó con datos de demostración (simulados). No describe a una organización real.",
+    "grade_label": "Calificación general de seguridad",
+    "grade_explainer": "La calificación parte de 100 puntos y resta puntos por cada hallazgo abierto (más cuanto mayor es la prioridad). A equivale a 90 o más, B a 80, C a 70, D a 60 y F a menos de 60. Cualquier hallazgo crítico limita la calificación a D como máximo.",
+    "section_exec": "Resumen ejecutivo",
+    "section_fix_first": "Corrija primero estas 3 cosas",
+    "section_batches": "Todas las soluciones recomendadas",
+    "section_findings_by_asset": "Hallazgos por sistema",
+    "section_frameworks": "Apéndice: correspondencia con marcos de referencia",
+    "section_method": "Cómo funciona la priorización",
+    "method_text": "Cada hallazgo recibe una puntuación de riesgo: su severidad técnica (CVSS) multiplicada por qué tan expuesto está el sistema, qué tan importante es para la organización y si se sabe que los atacantes ya aprovechan la falla. Las puntuaciones se ajustan a una escala de 0 a 100. Los hallazgos que figuran en la lista de vulnerabilidades explotadas conocidas de CISA nunca se clasifican por debajo de Alto.",
+    "frameworks_intro": "Los hallazgos de este informe se relacionan con las medidas de protección siguientes. Esta tabla puede ser útil al responder solicitudes de subvenciones y cuestionarios de seguros cibernéticos que preguntan cómo gestiona la organización su seguridad. La correspondencia es orientativa y no constituye una certificación.",
+    "cis_heading": "Controles CIS v8 - Grupo de implementación 1",
+    "nist_heading": "Marco de Ciberseguridad del NIST 2.0",
+    "col_framework_id": "ID",
+    "col_framework_title": "Medida de protección",
+    "col_related_findings": "Hallazgos relacionados",
+    "tech_details": "Detalles técnicos",
+    "what_it_means": "Qué significa",
+    "why_it_matters": "Por qué es importante",
+    "how_to_fix": "Cómo corregirlo",
+    "platform_label": "Plataforma",
+    "platform_controlled_label": "Lo controla la plataforma de su sitio web",
+    "sources_label": "Reportado por",
+    "evidence_label": "Evidencia",
+    "references_label": "Referencias",
+    "score_label": "Cálculo de la puntuación de riesgo",
+    "kev_badge_long": "Se sabe que los atacantes la aprovechan (CISA KEV)",
+    "exploit_badge_long": "Existe un exploit público",
+    "override_note": "Se elevó como mínimo a Alto porque se sabe que los atacantes aprovechan esta falla.",
+    "clears_text": "Resuelve {n} hallazgo(s) en {a} sistema(s)",
+    "first_step": "Primer paso",
+    "no_findings": "Sin hallazgos.",
+    "lang_toggle": "View in English",
+    "scanner_description": "Descripción del escáner",
+    "identifier_label": "Identificadores",
+    "changes_heading": "Cambios desde la ejecución anterior",
+    "changes_new": "Hallazgos nuevos",
+    "changes_resolved": "Hallazgos resueltos",
+    "changes_worse": "Riesgo en aumento",
+    "changes_none": "No hay cambios desde la ejecución anterior.",
+    "calc_note": "Cálculo = CVSS x exposición x importancia x factor de explotación, en una escala de 0 a 100"
+  },
+  "platform_names": {
+    "wordpress": "WordPress",
+    "wix": "Wix",
+    "squarespace": "Squarespace",
+    "google_sites": "Google Sites",
+    "custom": "Personalizado / alojamiento propio"
+  },
+  "platform_guidance": {
+    "headers": {
+      "wordpress": {
+        "steps": [
+          "En WordPress, lo más sencillo es usar un complemento de encabezados de seguridad con buenas reseñas, o pedir a su proveedor de alojamiento que agregue el encabezado. Evite editar a mano los archivos del servidor."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix controla esta configuración. Usted no puede modificarla.",
+        "steps": [
+          "En Wix no hay ninguna acción disponible para usted. Regístrelo como una limitación de la plataforma; puede preguntar al soporte de Wix si planean agregar este encabezado."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace controla esta configuración. Usted no puede modificarla.",
+        "steps": [
+          "En Squarespace no hay ninguna acción disponible para usted. Regístrelo como una limitación de la plataforma; puede preguntar al soporte de Squarespace si planean agregar este encabezado."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google Sites controla esta configuración. Usted no puede modificarla.",
+        "steps": [
+          "En Google Sites no hay ninguna acción disponible para usted. Regístrelo como una limitación de la plataforma."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Pida a quien administra el servidor web (su empresa de alojamiento o la persona voluntaria que desarrolla el sitio) que agregue el encabezado en la configuración del servidor."
+        ]
+      }
+    },
+    "tls": {
+      "wordpress": {
+        "steps": [
+          "La mayoría de los proveedores de alojamiento para WordPress incluyen un certificado gratuito con renovación automática. Revise primero la sección SSL/HTTPS de su panel de alojamiento."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix administra el HTTPS por usted.",
+        "steps": [
+          "En el panel de Wix, confirme que HTTPS/SSL esté activado para su dominio. Si el problema continúa, comuníquese con el soporte de Wix."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace administra el HTTPS por usted.",
+        "steps": [
+          "En la configuración de Squarespace, confirme que SSL esté en modo Seguro. Si el problema continúa, comuníquese con el soporte de Squarespace."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google Sites administra el HTTPS por usted.",
+        "steps": [
+          "Confirme que su dominio personalizado esté conectado correctamente en Google Sites. Si el problema continúa, comuníquese con el soporte de Google Workspace."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Pida a su proveedor de alojamiento que active un certificado gratuito con renovación automática (por ejemplo, Let's Encrypt)."
+        ]
+      }
+    },
+    "software": {
+      "wordpress": {
+        "steps": [
+          "Inicie sesión en el escritorio de WordPress y abra Escritorio > Actualizaciones. Actualice WordPress y luego todos los complementos (plugins) y temas.",
+          "Active las actualizaciones automáticas de los complementos para que el problema no reaparezca."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix actualiza su propio software.",
+        "steps": [
+          "Si el hallazgo está en algo que usted agregó (un fragmento de código personalizado o un widget incrustado), actualícelo o elimínelo. De lo contrario, repórtelo al soporte de Wix."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace actualiza su propio software.",
+        "steps": [
+          "Si el hallazgo está en algo que usted agregó (inyección de código o un widget incrustado), actualícelo o elimínelo. De lo contrario, repórtelo al soporte de Squarespace."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google actualiza su propio software.",
+        "steps": [
+          "Si el hallazgo está en un widget incrustado que usted agregó, actualícelo o elimínelo. De lo contrario, no hay ninguna acción disponible para usted."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Pida a su desarrollador o proveedor de alojamiento que aplique la actualización y que le explique cómo se gestionarán las actualizaciones de ahora en adelante."
+        ]
+      }
+    },
+    "server": {
+      "wordpress": {
+        "steps": [
+          "El software del servidor lo administra su proveedor de alojamiento, no WordPress. Envíe este hallazgo al equipo de soporte del proveedor y solicite una fecha de corrección."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix opera los servidores.",
+        "steps": [
+          "Reporte este hallazgo al soporte de Wix. Si se refiere a un servidor que usted administra, envíelo a quien se encargue de ese servidor."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace opera los servidores.",
+        "steps": [
+          "Reporte este hallazgo al soporte de Squarespace."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google opera los servidores.",
+        "steps": [
+          "No hay ninguna acción disponible para usted; Google mantiene los servidores."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Envíe este hallazgo a quien administra el servidor (empresa de alojamiento, persona voluntaria de TI o proveedor de servicios administrados)."
+        ]
+      }
+    },
+    "dns": {
+      "wix": {
+        "steps": [
+          "Si su dominio está conectado a través de Wix, los registros DNS se editan en la página Dominios del panel de Wix. De lo contrario, use el panel de control de su registrador de dominios."
+        ]
+      },
+      "squarespace": {
+        "steps": [
+          "Si Squarespace administra su dominio, los registros DNS se editan en Dominios > Configuración de DNS. De lo contrario, use el panel de control de su registrador de dominios."
+        ]
+      },
+      "wordpress": {
+        "steps": [
+          "Los registros DNS se modifican donde está registrado su dominio (el panel del registrador o del proveedor de alojamiento), no dentro de WordPress."
+        ]
+      },
+      "google_sites": {
+        "steps": [
+          "Los registros DNS se modifican donde está registrado su dominio, no dentro de Google Sites."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Los registros DNS se modifican en el panel de control de su registrador de dominios o de su proveedor de DNS."
+        ]
+      }
+    }
+  },
+  "batch_titles": {
+    "upgrade:jquery>=3.5.0": "Actualizar jQuery a la versión 3.5.0 o posterior",
+    "upgrade:wordpress-plugins": "Actualizar o eliminar los complementos vulnerables de WordPress",
+    "upgrade:wordpress-core": "Actualizar WordPress a la versión más reciente",
+    "upgrade:openssh>=9.8": "Actualizar OpenSSH en el servidor",
+    "upgrade:apache-httpd>=2.4.51": "Actualizar el servidor web Apache",
+    "upgrade:php-supported-version": "Cambiar a una versión de PHP con soporte",
+    "patch:disable-smbv1": "Instalar la actualización MS17-010 y desactivar SMBv1",
+    "replace:unsupported-operating-system": "Reemplazar el sistema operativo sin soporte",
+    "access:change-default-credentials": "Cambiar las contraseñas predeterminadas",
+    "access:enable-mfa": "Activar la autenticación multifactor para los administradores",
+    "code:fix-sql-injection": "Corregir la falla de inyección SQL en el código del sitio",
+    "code:fix-cross-site-scripting": "Corregir la falla de cross-site scripting en el código del sitio",
+    "remove:exposed-env-file": "Retirar el archivo de configuración expuesto y cambiar las contraseñas que contiene",
+    "remove:exposed-git-directory": "Bloquear el acceso público a la carpeta .git",
+    "remove:exposed-backup-files": "Retirar las copias de seguridad del sitio web público",
+    "config:disable-directory-listing": "Desactivar el listado de directorios",
+    "network:restrict-admin-interface": "Limitar quién puede llegar a la página de inicio de sesión de administración",
+    "service:disable-telnet": "Desactivar Telnet",
+    "service:disable-ftp": "Reemplazar FTP por una alternativa segura",
+    "network:restrict-remote-desktop": "Dejar de exponer el Escritorio remoto a internet",
+    "network:restrict-database-port": "Cerrar el puerto de la base de datos a internet",
+    "config:force-https": "Forzar HTTPS en todo el sitio",
+    "review:donation-page-scripts": "Revisar los scripts de terceros en la página de donaciones",
+    "review:third-party-trackers": "Revisar los rastreadores de terceros en el sitio web",
+    "content:publish-privacy-policy": "Publicar y enlazar una política de privacidad",
+    "renew:tls-certificate": "Renovar el certificado de seguridad del sitio web",
+    "config:disable-legacy-tls": "Desactivar las versiones obsoletas de TLS",
+    "config:add-hsts-header": "Agregar el encabezado de seguridad HSTS",
+    "config:add-csp-header": "Agregar un encabezado Content-Security-Policy",
+    "config:add-x-frame-options-header": "Agregar protección contra clickjacking (X-Frame-Options)",
+    "config:add-x-content-type-options-header": "Agregar el encabezado X-Content-Type-Options",
+    "config:add-referrer-policy-header": "Agregar un encabezado Referrer-Policy",
+    "config:add-permissions-policy-header": "Agregar un encabezado Permissions-Policy",
+    "config:secure-cookie-flags": "Configurar los atributos de seguridad de las cookies",
+    "config:hide-server-version": "Ocultar las versiones del software del servidor",
+    "dns:add-dmarc-record": "Publicar un registro DMARC para su dominio de correo",
+    "dns:enforce-dmarc-policy": "Reforzar la política DMARC",
+    "dns:add-spf-record": "Publicar un registro SPF correcto",
+    "dns:enable-dkim": "Activar la firma de correo DKIM",
+    "renew:domain-registration": "Renovar el nombre de dominio y activar la renovación automática",
+    "access:reset-breached-passwords": "Restablecer las contraseñas de las cuentas halladas en filtraciones de datos",
+    "monitor:lookalike-domains": "Revisar y denunciar los dominios parecidos",
+    "incident:clean-flagged-site": "Limpiar el sitio web y solicitar su retiro de las listas de bloqueo",
+    "inventory:review-unlisted-hosts": "Revisar los nombres de host públicos que faltan en el inventario"
+  },
+  "entries": {
+    "vulnerable-wp-plugin": {
+      "title": "Complemento de WordPress vulnerable",
+      "what": "Un complemento (plugin) instalado en el sitio de WordPress tiene una falla de seguridad conocida. En los peores casos, una persona desconocida puede tomar el control del sitio web sin necesidad de contraseña.",
+      "why": "Los atacantes recorren todo internet en busca de sitios con complementos vulnerables. Si toman el control, podrían quedar expuestos los nombres, correos e historial de donaciones de sus donantes, o su sitio podría terminar distribuyendo software malicioso entre quienes lo apoyan.",
+      "fix": [
+        "Actualice hoy mismo a la versión más reciente el complemento que se indica en los detalles técnicos.",
+        "Si ya no necesita el complemento, desactívelo y elimínelo.",
+        "Después, revise en la página Usuarios que no haya cuentas de administrador que usted no reconozca."
+      ]
+    },
+    "outdated-wordpress-core": {
+      "title": "WordPress está desactualizado",
+      "what": "El sitio web usa una versión antigua de WordPress a la que le faltan correcciones de seguridad.",
+      "why": "Las versiones antiguas de WordPress tienen debilidades de conocimiento público que los atacantes aprovechan para alterar sitios o robar datos.",
+      "fix": [
+        "Haga una copia de seguridad del sitio y luego actualice WordPress desde Escritorio > Actualizaciones.",
+        "Active las actualizaciones automáticas para las versiones menores."
+      ]
+    },
+    "outdated-jquery": {
+      "title": "Biblioteca jQuery desactualizada",
+      "what": "El sitio web usa una versión antigua de jQuery, un componente muy común en las páginas web. Las versiones antiguas permiten que, en ciertas condiciones, un atacante ejecute su propio código en el navegador de quien visita el sitio.",
+      "why": "En una página de donaciones, un código que se ejecuta en el navegador de un donante podría leer lo que escribe o redirigirlo a una página falsa. Esta falla figura en la lista gubernamental de vulnerabilidades que los atacantes aprovechan activamente.",
+      "fix": [
+        "Actualice jQuery a la versión 3.5.0 o posterior. Una sola actualización resuelve todos los hallazgos de jQuery a la vez.",
+        "Después de actualizar, recorra los menús, los formularios y la página de donaciones del sitio para confirmar que todo siga funcionando."
+      ],
+      "platform_fix": {
+        "wordpress": [
+          "Actualice WordPress, su tema y todos los complementos desde Escritorio > Actualizaciones; la versión actual de WordPress incluye una versión segura de jQuery.",
+          "Si el hallazgo persiste, la copia antigua proviene de un tema o de un complemento. Pida una actualización a quien lo desarrolla o reemplácelo.",
+          "Después, pruebe los menús, los formularios y la página de donaciones."
+        ]
+      }
+    },
+    "outdated-openssh": {
+      "title": "Software de acceso remoto desactualizado (OpenSSH)",
+      "what": "El servicio de administración remota del servidor (SSH) es una versión antigua con fallas de seguridad conocidas.",
+      "why": "SSH es la puerta que usan los administradores para gestionar el servidor. Una falla en ese servicio puede darle a un atacante el mismo control que tiene un administrador.",
+      "fix": [
+        "Pida a quien administra el servidor que instale las actualizaciones de seguridad más recientes del sistema operativo, que incluyen OpenSSH.",
+        "Limite el acceso por SSH a las personas o direcciones específicas que lo necesiten."
+      ]
+    },
+    "outdated-apache": {
+      "title": "Software del servidor web desactualizado (Apache)",
+      "what": "El programa que entrega el sitio web es una versión antigua con fallas de seguridad conocidas. Algunas versiones permiten que una persona desconocida lea archivos que deberían ser privados.",
+      "why": "Los atacantes aprovechan activamente esta falla. Los archivos privados de un servidor web suelen contener contraseñas que abren otros sistemas.",
+      "fix": [
+        "Pida al proveedor de alojamiento o a quien administra el servidor que actualice Apache a la versión más reciente.",
+        "Si el sitio ya no es necesario, es mejor retirarlo de internet. Un sitio sin uso representa un riesgo sin ningún beneficio."
+      ]
+    },
+    "outdated-php": {
+      "title": "Versión de PHP sin soporte",
+      "what": "El sitio web funciona con una versión de PHP (el lenguaje de programación del sitio) que sus creadores ya no corrigen cuando se descubren problemas de seguridad.",
+      "why": "Las nuevas debilidades del software sin soporte nunca se reparan, por lo que cada mes resulta más fácil vulnerar el sitio.",
+      "fix": [
+        "En el panel de control de su alojamiento, cambie el sitio a una versión de PHP con soporte vigente (por lo general, el panel ofrece una lista desplegable).",
+        "Pruebe el sitio después del cambio; es posible que también deba actualizar complementos o temas muy antiguos."
+      ]
+    },
+    "smbv1-enabled": {
+      "title": "Uso compartido de archivos obsoleto (SMBv1) con un ataque conocido",
+      "what": "El servidor de archivos todavía acepta un método para compartir archivos que tiene décadas de antigüedad y contra el cual existe un ataque muy conocido y difundido.",
+      "why": "Esta misma debilidad fue la que utilizó el ransomware WannaCry. Una sola computadora portátil infectada en la red de la oficina podría bloquear todos los archivos compartidos, incluidos los registros de donantes y de subvenciones.",
+      "fix": [
+        "Instale en el servidor de archivos las actualizaciones de seguridad pendientes de Windows (en particular, la MS17-010).",
+        "Desactive SMBv1 en las características de Windows; las computadoras modernas no lo necesitan.",
+        "Confirme que existan copias de seguridad de los archivos compartidos y que se puedan restaurar."
+      ]
+    },
+    "unsupported-os": {
+      "title": "Sistema operativo sin soporte",
+      "what": "Esta computadora usa un sistema operativo que su fabricante dejó de actualizar.",
+      "why": "Cada debilidad que se descubra quedará abierta para siempre. Las aseguradoras y las entidades que otorgan subvenciones suelen preguntar específicamente si se usan sistemas sin soporte.",
+      "fix": [
+        "Planifique la migración a una versión del sistema operativo con soporte; solicite a su proveedor de TI un presupuesto y un cronograma.",
+        "Mientras tanto, mantenga esta computadora fuera de la internet pública y limite quién puede conectarse a ella.",
+        "Asegúrese de que sus datos estén respaldados en otro lugar."
+      ]
+    },
+    "default-credentials": {
+      "title": "Contraseña predeterminada todavía en uso",
+      "what": "Un sistema todavía acepta el nombre de usuario y la contraseña con los que vino de fábrica o del proveedor.",
+      "why": "Las contraseñas predeterminadas están publicadas en internet. Cualquiera que encuentre la página de inicio de sesión puede entrar como administrador.",
+      "fix": [
+        "Cambie la contraseña ahora mismo por una larga y única, y guárdela en un gestor de contraseñas.",
+        "Elimine la cuenta predeterminada o cámbiele el nombre, si el sistema lo permite."
+      ]
+    },
+    "missing-mfa": {
+      "title": "Inicio de sesión de administración sin autenticación multifactor",
+      "what": "Los administradores pueden iniciar sesión solo con una contraseña. No existe un segundo paso, como un código generado por una aplicación en el teléfono.",
+      "why": "Las contraseñas se adivinan, se reutilizan y se roban mediante correos fraudulentos. Un segundo paso detiene la mayoría de los robos de cuentas, incluso cuando la contraseña ya se conoce.",
+      "fix": [
+        "Active la autenticación multifactor (también llamada verificación en dos pasos) en todas las cuentas de administrador.",
+        "Prefiera una aplicación de autenticación en lugar de los mensajes de texto."
+      ],
+      "platform_fix": {
+        "wordpress": [
+          "Instale un complemento de autenticación en dos pasos con buenas reseñas y exíjalo en todas las cuentas de Administrador y Editor.",
+          "Prefiera una aplicación de autenticación en lugar de los mensajes de texto."
+        ]
+      }
+    },
+    "sql-injection": {
+      "title": "Un formulario del sitio permite leer la base de datos (inyección SQL)",
+      "what": "Un formulario o cuadro de búsqueda del sitio envía directamente a la base de datos lo que escribe el visitante. Quien escriba ciertos comandos especiales puede leer o modificar los registros almacenados.",
+      "why": "La base de datos de un sitio de donaciones guarda nombres, datos de contacto e historial de donaciones. Esta es una de las formas más comunes de robar esa información.",
+      "fix": [
+        "Envíe los detalles técnicos a quien desarrolla el sitio web y solicite una corrección mediante consultas parametrizadas.",
+        "Si la función afectada no es indispensable, desactívela hasta que se corrija.",
+        "Pida que se revisen los demás formularios para descartar el mismo problema."
+      ]
+    },
+    "xss": {
+      "title": "El sitio puede ser engañado para ejecutar código ajeno (cross-site scripting)",
+      "what": "Una página repite texto tomado de la dirección web o de un formulario sin depurarlo, de modo que un enlace preparado especialmente puede hacer que la página ejecute el código de un atacante en el navegador del visitante.",
+      "why": "Quien haga clic en un enlace así verá su sitio web auténtico, pero el código del atacante puede alterar la página; por ejemplo, para cambiar el destino de una donación.",
+      "fix": [
+        "Envíe los detalles técnicos a quien desarrolla el sitio web y pídale que codifique todo el texto proporcionado por los visitantes antes de mostrarlo.",
+        "Solicite que se revisen las páginas similares para descartar el mismo problema."
+      ]
+    },
+    "exposed-env": {
+      "title": "Un archivo de configuración con contraseñas es de acceso público",
+      "what": "Cualquier persona que conozca la dirección puede descargar un archivo de configuración (.env) que normalmente contiene contraseñas de la base de datos y claves secretas.",
+      "why": "Las contraseñas de ese archivo pueden abrir la base de datos y otros servicios. Dé por hecho que ya fueron vistas.",
+      "fix": [
+        "Pida a su desarrollador o proveedor de alojamiento que bloquee el acceso al archivo o lo mueva fuera de la carpeta pública del sitio.",
+        "Cambie todas las contraseñas y claves que estaban en el archivo. Retirar el archivo no es suficiente.",
+        "Verifique que no haya otros archivos ocultos expuestos de la misma manera."
+      ]
+    },
+    "exposed-git": {
+      "title": "La carpeta del código fuente del sitio es de acceso público",
+      "what": "En el sitio público quedó una carpeta oculta (.git) que los desarrolladores usan para llevar el control de los cambios. Permite que cualquiera descargue el código fuente del sitio y su historial.",
+      "why": "El historial del código fuente suele contener contraseñas y revela exactamente cómo funciona el sitio, lo que facilita mucho otros ataques.",
+      "fix": [
+        "Pida a su desarrollador o proveedor de alojamiento que bloquee el acceso público a la carpeta .git o que la elimine del servidor.",
+        "Solicite a su desarrollador que verifique si alguna vez se guardaron contraseñas en el código y que las cambie."
+      ]
+    },
+    "exposed-backup": {
+      "title": "Una copia de seguridad se puede descargar públicamente",
+      "what": "Hay una copia de seguridad del sitio web o de su base de datos en una carpeta pública, donde cualquiera puede descargarla.",
+      "why": "Las copias de seguridad lo contienen todo: registros de donantes, cuentas de usuario y contraseñas, en un solo archivo.",
+      "fix": [
+        "Elimine la copia de seguridad del servidor web o muévala a un lugar que no sea público.",
+        "En adelante, guarde las copias de seguridad fuera del servidor web.",
+        "Si la copia contenía datos personales, converse con la dirección sobre si corresponde notificar a alguien."
+      ]
+    },
+    "directory-listing": {
+      "title": "El servidor web muestra el contenido de las carpetas",
+      "what": "Cuando alguien visita ciertas carpetas del sitio, el servidor muestra la lista de todos los archivos que contienen en lugar de una página web.",
+      "why": "Los visitantes pueden explorar y descargar archivos que no debían encontrarse, como documentos antiguos o copias de seguridad.",
+      "fix": [
+        "Pida a su proveedor de alojamiento o a su desarrollador que desactive el listado de directorios (también llamado indexación de directorios).",
+        "Revise las carpetas listadas y retire todo lo que no deba ser público."
+      ]
+    },
+    "admin-interface-exposed": {
+      "title": "La página de inicio de sesión de administración está abierta a todo internet",
+      "what": "Cualquier persona, desde cualquier lugar, puede llegar a la página donde inician sesión los administradores.",
+      "why": "Los atacantes usan programas que prueban miles de contraseñas en las páginas de inicio de sesión, sin descanso.",
+      "fix": [
+        "Active la autenticación multifactor en todas las cuentas de administrador.",
+        "Si es posible, limite la página de inicio de sesión a ubicaciones específicas o protéjala con una contraseña adicional.",
+        "Limite la cantidad de intentos de inicio de sesión."
+      ]
+    },
+    "open-telnet": {
+      "title": "Servicio de acceso remoto inseguro (Telnet) abierto",
+      "what": "El servidor acepta Telnet, un método antiguo de acceso remoto que envía las contraseñas sin ninguna protección.",
+      "why": "Cualquiera que se ubique entre el administrador y el servidor puede leer la contraseña mientras viaja por la red.",
+      "fix": [
+        "Pida a quien administra el servidor que desactive Telnet. Es casi seguro que el reemplazo seguro (SSH) ya esté disponible."
+      ]
+    },
+    "open-rdp": {
+      "title": "El Escritorio remoto está abierto a internet",
+      "what": "Se puede llegar al servicio de Escritorio remoto de Windows directamente desde internet.",
+      "why": "El Escritorio remoto expuesto es una de las vías más comunes por las que el ransomware entra en las organizaciones pequeñas.",
+      "fix": [
+        "Cierre en el cortafuegos el acceso al Escritorio remoto desde internet.",
+        "Si necesita acceso remoto, use una VPN o una herramienta de acceso remoto que exija autenticación multifactor."
+      ]
+    },
+    "open-database-port": {
+      "title": "La base de datos es accesible desde internet",
+      "what": "La base de datos que guarda la información del sitio acepta conexiones desde cualquier lugar de internet, y no solo desde el propio sitio web.",
+      "why": "En la base de datos están los registros de los donantes. Las bases de datos expuestas reciben a diario intentos de adivinar contraseñas y ataques que aprovechan fallas conocidas.",
+      "fix": [
+        "Pida al proveedor de alojamiento que restrinja el puerto de la base de datos para que solo el servidor del sitio web pueda conectarse.",
+        "Confirme que las cuentas de la base de datos usen contraseñas seguras y únicas."
+      ]
+    },
+    "open-ftp": {
+      "title": "Servicio de transferencia de archivos inseguro (FTP) abierto",
+      "what": "El servidor acepta FTP, un método antiguo para subir archivos que envía los nombres de usuario y las contraseñas sin protección.",
+      "why": "Con una contraseña de FTP robada, un atacante puede modificar los archivos del sitio web; por ejemplo, para agregar un formulario de donación falso.",
+      "fix": [
+        "Pida a su proveedor de alojamiento que desactive FTP y use SFTP (la versión segura) en su lugar.",
+        "Cambie las contraseñas de FTP, ya que es posible que alguien las haya visto."
+      ]
+    },
+    "donation-form-insecure": {
+      "title": "La página de donaciones no está totalmente protegida con HTTPS",
+      "what": "La página de donaciones, o el formulario que contiene, envía información a través de una conexión sin protección.",
+      "why": "Aquí los donantes escriben su nombre, su dirección y sus datos de pago. Sin protección, esa información puede ser leída o alterada en el camino.",
+      "fix": [
+        "Asegúrese de que tanto la página de donaciones como su formulario usen direcciones que comiencen con https://.",
+        "Configure todo el sitio para que redirija automáticamente a HTTPS."
+      ]
+    },
+    "third-party-scripts-donation": {
+      "title": "Scripts externos en la página de donaciones",
+      "what": "Además del procesador de pagos, la página de donaciones carga código de otras empresas (por ejemplo, herramientas de analítica, widgets de chat o de publicidad).",
+      "why": "Cada script externo en una página de pagos puede ver lo que escriben los donantes. Los delincuentes vulneran a los proveedores de esos scripts para copiar números de tarjeta; mientras menos scripts haya, menor será el riesgo.",
+      "fix": [
+        "Haga una lista de los scripts externos de la página de donaciones y pregúntese en cada caso: ¿lo necesitamos aquí?",
+        "Retire de la página de donaciones todo lo que no sea indispensable para recibir el pago.",
+        "Conserve el script del procesador de pagos; su presencia es normal."
+      ]
+    },
+    "third-party-trackers": {
+      "title": "Rastreadores de terceros en el sitio web",
+      "what": "El sitio carga herramientas de seguimiento de otras empresas que registran lo que hacen los visitantes.",
+      "why": "Quienes visitan el sitio de una organización sin fines de lucro pueden estar buscando ayuda en situaciones delicadas. Los rastreadores comparten esa visita con empresas de publicidad, y las leyes de privacidad pueden exigir que se informe o se pida consentimiento.",
+      "fix": [
+        "Decida qué herramientas de seguimiento usa realmente la organización y retire las demás.",
+        "Mencione las herramientas restantes en la política de privacidad."
+      ]
+    },
+    "missing-privacy-policy": {
+      "title": "No se encontró un enlace a la política de privacidad",
+      "what": "La página de inicio no tiene un enlace visible a una política de privacidad.",
+      "why": "Los donantes esperan saber cómo se usa su información. Los procesadores de pagos, las entidades que otorgan subvenciones y las leyes de privacidad suelen exigir una política publicada.",
+      "fix": [
+        "Publique una política de privacidad breve que indique qué datos recopila, con qué fin y con quién los comparte.",
+        "Enlácela desde el pie de página de todas las páginas."
+      ]
+    },
+    "tls-cert-invalid": {
+      "title": "El certificado de seguridad del sitio web no es válido o está vencido",
+      "what": "El certificado que acredita la identidad del sitio y protege las conexiones está vencido o no se puede verificar.",
+      "why": "Los visitantes ven una advertencia a pantalla completa en el navegador que les indica que el sitio no es seguro. La mayoría se irá y las donaciones se detendrán.",
+      "fix": [
+        "Renueve o vuelva a emitir el certificado hoy mismo.",
+        "Active la renovación automática para que no vuelva a ocurrir."
+      ]
+    },
+    "tls-cert-expiring": {
+      "title": "El certificado de seguridad del sitio web vence pronto",
+      "what": "El certificado que protege las conexiones con el sitio vencerá en los próximos días.",
+      "why": "El día en que venza, todos los visitantes verán en el navegador una advertencia de que el sitio no es seguro y, en la práctica, las donaciones en línea se detendrán.",
+      "fix": [
+        "Renueve el certificado antes de que venza.",
+        "Active la renovación automática y, como respaldo, agregue un recordatorio en un calendario compartido."
+      ]
+    },
+    "tls-legacy-protocols": {
+      "title": "Todavía se aceptan versiones de cifrado obsoletas",
+      "what": "El sitio todavía acepta versiones antiguas de la tecnología que protege las conexiones (TLS 1.0 y 1.1), retiradas hace años.",
+      "why": "Las versiones antiguas tienen debilidades conocidas. Las normas de las tarjetas de pago no las permiten en páginas que procesan pagos con tarjeta.",
+      "fix": [
+        "Pida a su proveedor de alojamiento que desactive TLS 1.0 y 1.1 y conserve TLS 1.2 y 1.3."
+      ]
+    },
+    "no-https-redirect": {
+      "title": "El sitio no pasa a los visitantes a una conexión segura",
+      "what": "Quienes escriben la dirección sin https:// permanecen en una conexión sin protección.",
+      "why": "Todo lo que envíen o lean puede ser visto o modificado por otras personas en la misma red, como una red wifi pública.",
+      "fix": [
+        "Active la opción que redirige a todos los visitantes a HTTPS."
+      ]
+    },
+    "missing-hsts": {
+      "title": "No se indica a los navegadores que usen siempre una conexión segura (HSTS)",
+      "what": "Al sitio le falta una configuración que indica a los navegadores que usen siempre la versión protegida (HTTPS).",
+      "why": "Sin ella, un visitante conectado a una red wifi pública puede ser desviado, sin notarlo, a una copia del sitio sin protección.",
+      "fix": [
+        "Agregue el encabezado Strict-Transport-Security con un valor max-age de al menos seis meses."
+      ]
+    },
+    "missing-csp": {
+      "title": "No hay una política de seguridad de contenido",
+      "what": "Al sitio le falta una configuración que indica a los navegadores qué fuentes de scripts y de contenido están permitidas.",
+      "why": "Esta configuración funciona como una red de seguridad: si un atacante logra inyectar código en una página, el navegador puede negarse a ejecutarlo.",
+      "fix": [
+        "Agregue un encabezado Content-Security-Policy. Comience en modo de solo informe para que nada deje de funcionar y luego aplíquelo."
+      ]
+    },
+    "missing-x-frame-options": {
+      "title": "El sitio se puede incrustar dentro de otro sitio web (clickjacking)",
+      "what": "Al sitio le falta una configuración que impide que otros sitios web lo muestren dentro de un marco invisible.",
+      "why": "Un atacante puede colocar su página auténtica debajo de una falsa y engañar a los visitantes para que hagan clic en botones que no pueden ver.",
+      "fix": [
+        "Agregue el encabezado X-Frame-Options: SAMEORIGIN (o la regla frame-ancestors equivalente)."
+      ]
+    },
+    "missing-x-content-type-options": {
+      "title": "Falta la protección del navegador sobre el tipo de archivo",
+      "what": "Al sitio le falta una pequeña configuración que impide que los navegadores adivinen qué tipo de archivo recibieron.",
+      "why": "Esa suposición puede hacer que un archivo subido, en apariencia inofensivo, se trate como código de programa.",
+      "fix": [
+        "Agregue el encabezado X-Content-Type-Options: nosniff."
+      ]
+    },
+    "missing-referrer-policy": {
+      "title": "No hay una política de referencia (Referrer-Policy)",
+      "what": "El sitio no limita qué información de la dirección se transmite cuando un visitante hace clic en un enlace hacia otro sitio web.",
+      "why": "Las direcciones de las páginas pueden revelar lo que estaba viendo un visitante. Se trata de una mejora menor de privacidad.",
+      "fix": [
+        "Agregue el encabezado Referrer-Policy: strict-origin-when-cross-origin."
+      ]
+    },
+    "missing-permissions-policy": {
+      "title": "No hay una política de permisos",
+      "what": "El sitio no declara qué funciones del dispositivo (cámara, micrófono, ubicación) pueden usar sus páginas.",
+      "why": "Declarar que no se necesita ninguna impide que el contenido incrustado las solicite. Es una medida menor de refuerzo.",
+      "fix": [
+        "Agregue un encabezado Permissions-Policy que desactive las funciones que el sitio no utiliza."
+      ]
+    },
+    "insecure-cookies": {
+      "title": "A las cookies de sesión les faltan atributos de protección",
+      "what": "El sitio guarda pequeños archivos (cookies) en el navegador de los visitantes sin los atributos que los mantienen privados.",
+      "why": "Una cookie suele funcionar como el pase de quien ya inició sesión. Sin estos atributos, es más fácil robarla.",
+      "fix": [
+        "Pida a su desarrollador que configure los atributos Secure, HttpOnly y SameSite en todas las cookies."
+      ]
+    },
+    "server-version-disclosure": {
+      "title": "El servidor revela las versiones de su software",
+      "what": "El sitio anuncia exactamente qué software usa y en qué versión.",
+      "why": "Eso les indica a los atacantes qué debilidades conocidas probar primero. Por sí solo es un problema menor.",
+      "fix": [
+        "Pida a su proveedor de alojamiento que oculte los números de versión en las respuestas del servidor."
+      ]
+    },
+    "missing-dmarc": {
+      "title": "Cualquiera puede enviar correos que parezcan provenir de su organización (sin DMARC)",
+      "what": "Su dominio de correo no tiene un registro DMARC, la configuración que indica a otros sistemas de correo que rechacen las falsificaciones.",
+      "why": "Los delincuentes pueden enviar correos convincentes desde su dirección exacta, incluidas solicitudes de donación falsas a quienes lo apoyan o facturas falsas a su personal.",
+      "fix": [
+        "Publique un registro DMARC para su dominio. Comience con una política de supervisión (p=none) que le envíe informes.",
+        "Después de algunas semanas de informes sin problemas, cambie la política a quarantine y luego a reject.",
+        "Las páginas de ayuda de su proveedor de correo indican el registro exacto que debe agregar."
+      ]
+    },
+    "weak-dmarc-policy": {
+      "title": "La protección contra la suplantación de correo está en modo de solo supervisión",
+      "what": "Su dominio tiene un registro DMARC, pero solo informa sobre los correos falsos; no los bloquea.",
+      "why": "Los correos falsos que usan su dirección siguen llegando a quienes lo apoyan y a su personal.",
+      "fix": [
+        "Revise los informes de DMARC para confirmar que su correo legítimo pasa las verificaciones.",
+        "Cambie la política de p=none a p=quarantine y, más adelante, a p=reject."
+      ]
+    },
+    "missing-spf": {
+      "title": "La lista de remitentes de correo (SPF) falta o es demasiado permisiva",
+      "what": "Su dominio no publica una lista correcta de los sistemas de correo autorizados a enviar mensajes en su nombre.",
+      "why": "Sin esa lista, los demás sistemas de correo no pueden distinguir sus mensajes auténticos de las falsificaciones, y es más probable que sus mensajes legítimos terminen en la carpeta de correo no deseado.",
+      "fix": [
+        "Publique un registro SPF que incluya a su proveedor de correo y a cualquier servicio de envíos masivos que utilice, y que termine en ~all o -all.",
+        "Las páginas de ayuda de su proveedor de correo indican el registro exacto que debe agregar."
+      ]
+    },
+    "missing-dkim": {
+      "title": "No se pudo confirmar la firma de correo (DKIM)",
+      "what": "No se encontró una clave de firma DKIM con los nombres que usa la mayoría de los proveedores. DKIM permite a los destinatarios verificar que un mensaje realmente proviene de usted.",
+      "why": "Sin DKIM, la protección de DMARC es más débil y es más probable que su correo se marque como no deseado. Esta verificación puede pasar por alto configuraciones personalizadas, así que confírmelo primero.",
+      "fix": [
+        "Busque la opción de DKIM en la consola de administración de su proveedor de correo y actívela.",
+        "Si ya está activada, no necesita hacer nada."
+      ]
+    },
+    "domain-expiring": {
+      "title": "El registro del nombre de dominio vence pronto",
+      "what": "El registro de la dirección de su sitio web y de su correo electrónico está próximo a su fecha de vencimiento.",
+      "why": "Si vence, el sitio web y todo el correo dejarán de funcionar, y otra persona podrá comprar el nombre y hacerse pasar por usted.",
+      "fix": [
+        "Renueve el dominio ahora por más de un año.",
+        "Active la renovación automática y verifique que la tarjeta de pago registrada esté vigente.",
+        "Asegúrese de que la cuenta del registrador pertenezca a la organización y no a una sola persona."
+      ]
+    },
+    "breach-exposure": {
+      "title": "Direcciones de correo del personal aparecen en filtraciones de datos conocidas",
+      "what": "Direcciones de correo de su dominio aparecen en listas de cuentas robadas en filtraciones de datos de otras empresas.",
+      "why": "Si el personal reutilizó esas contraseñas, los atacantes pueden iniciar sesión en sus sistemas haciéndose pasar por esas personas.",
+      "fix": [
+        "Pida a las personas afectadas que cambien la contraseña en todos los servicios donde hayan reutilizado la que se filtró.",
+        "Active la autenticación multifactor en el correo y en las demás cuentas clave.",
+        "Ofrezca al personal un gestor de contraseñas."
+      ]
+    },
+    "lookalike-domain": {
+      "title": "Existen nombres de dominio parecidos al suyo",
+      "what": "Alguien registró direcciones web que se ven casi idénticas a la suya.",
+      "why": "Las direcciones parecidas se usan para crear páginas de donación falsas y para enviar correos que suplantan a su personal.",
+      "fix": [
+        "Visite con cuidado cada dirección parecida (o pida a su contacto de TI que lo haga) y revise qué contiene.",
+        "Denuncie ante el registrador las que lo suplanten y avise a quienes lo apoyan.",
+        "Considere registrar usted mismo las variantes más evidentes."
+      ]
+    },
+    "site-flagged-malicious": {
+      "title": "El sitio web está marcado como peligroso",
+      "what": "Un servicio de seguridad marcó su sitio web como dañino. Es posible que los navegadores muestren a los visitantes una página roja de advertencia.",
+      "why": "Por lo general, esto significa que el sitio fue vulnerado. Se está advirtiendo a los visitantes que no entren, y los buscadores podrían ocultar el sitio.",
+      "fix": [
+        "Trátelo como un incidente: comuníquese de inmediato con su desarrollador web o con su proveedor de alojamiento.",
+        "Solicite que limpien el sitio y que se cambien todas las contraseñas.",
+        "Después de la limpieza, pida una revisión al servicio que marcó el sitio."
+      ]
+    },
+    "unknown-public-host": {
+      "title": "Direcciones web públicas que faltan en su inventario",
+      "what": "Se encontraron direcciones bajo su dominio que no figuran en la lista de sistemas de la organización.",
+      "why": "Los sitios olvidados no reciben actualizaciones y son una vía de entrada frecuente. No se puede proteger lo que no se sabe que se tiene.",
+      "fix": [
+        "Averigüe qué es cada dirección y quién es responsable de ella.",
+        "Retire las que ya no se necesiten.",
+        "Agregue las demás al inventario de activos para que se incluyan en los próximos escaneos."
+      ]
+    },
+    "shared-hosting": {
+      "title": "El sitio web comparte servidor con otros sitios",
+      "what": "El sitio se encuentra en un servidor compartido junto con otros sitios web ajenos. Es habitual en los servicios de alojamiento económicos.",
+      "why": "A veces, una intrusión en un sitio vecino puede afectar al suyo. Conviene saberlo, sobre todo si el sitio recibe donaciones.",
+      "fix": [
+        "No se requiere ninguna acción. Si el sitio gestiona donaciones, considere consultar con su proveedor sobre un alojamiento aislado."
+      ]
+    }
+  }
+}

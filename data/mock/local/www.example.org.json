@@ -1,0 +1,33 @@
+{
+  "http": {
+    "http://www.example.org/": {
+      "status": 301,
+      "headers": {
+        "Location": "https://www.example.org/"
+      }
+    },
+    "https://www.example.org/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "Pepyaka",
+        "Strict-Transport-Security": "max-age=86400",
+        "X-Content-Type-Options": "nosniff",
+        "X-Wix-Request-Id": "1759673171.0000"
+      },
+      "body": "<!doctype html><html><head><title>Example Community Nonprofit</title>\n<script src=\"https://static.parastorage.com/services/wix-thunderbolt/dist/main.js\"></script>\n<script src=\"https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER\"></script>\n<script src=\"https://static.hotjar.com/c/hotjar-000000.js\"></script>\n</head><body><a href=\"/about\">About us</a> <a href=\"/privacy\">Privacy</a></body></html>"
+    }
+  },
+  "not_found": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "body": "<html><body>Not found</body></html>"
+  },
+  "tls": {
+    "valid": true,
+    "days_remaining": 74,
+    "legacy_protocols": []
+  }
+}

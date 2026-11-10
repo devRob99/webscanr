@@ -1,0 +1,768 @@
+{
+  "ui": {
+    "app_title": "WebScan Security Summary",
+    "mock_banner": "DEMO / MOCK DATA - no live scan was performed",
+    "live_banner": "Results include live scan data",
+    "the_organization": "The organization",
+    "overall_grade": "Overall grade",
+    "findings_total": "Findings",
+    "pri_Critical": "Critical",
+    "pri_High": "High",
+    "pri_Medium": "Medium",
+    "pri_Low": "Low",
+    "pri_Info": "Info",
+    "col_rank": "#",
+    "col_priority": "Priority",
+    "col_risk": "Risk",
+    "col_cvss": "CVSS",
+    "col_asset": "System",
+    "col_finding": "Finding",
+    "col_signals": "Signals",
+    "col_why": "Calculation",
+    "col_fix": "Fix",
+    "col_clears": "Clears",
+    "col_assets": "Systems",
+    "col_effort": "Effort",
+    "col_total_risk": "Risk removed",
+    "col_top_risk": "Top risk",
+    "col_count": "Count",
+    "heading_summary": "Findings by priority",
+    "heading_exec_summary": "Executive summary",
+    "heading_compare": "Why prioritization matters",
+    "heading_top_findings": "Top findings by real-world risk",
+    "heading_batches": "Remediation batches (one fix, many findings)",
+    "heading_fix_first": "Fix these 3 things first",
+    "heading_warnings": "Notes",
+    "compare_intro": "A scanner that sorts only by CVSS severity would put the left column first. WebScan also weighs how exposed the system is, how important it is, and whether attackers are already using the weakness.",
+    "compare_cvss": "Sorted by CVSS only",
+    "compare_webscan": "Sorted by WebScan risk",
+    "compare_spotlight": "Example: \"{low_name}\" on {low_asset} has a lower CVSS score ({low_cvss}) but ranks #{low_rank}, because attackers are known to exploit it and it sits on a public, important system. \"{high_name}\" on {high_asset} has CVSS {high_cvss} but ranks #{high_rank}, because that system is less exposed and less important.",
+    "signal_kev": "KEV",
+    "signal_exploit": "Exploit",
+    "signal_epss": "EPSS",
+    "effort_quick": "Quick",
+    "effort_moderate": "Moderate",
+    "effort_involved": "Involved",
+    "exposure_public": "public",
+    "exposure_staging": "staging",
+    "exposure_internal": "internal",
+    "criticality_1": "low importance",
+    "criticality_2": "medium importance",
+    "criticality_3": "critical importance",
+    "files_written": "Files written",
+    "unlisted_asset": "not in the asset inventory; conservative defaults used",
+    "no_plain_language": "No plain-language explanation is available for this finding yet. The scanner's own description is shown in the technical details.",
+    "generic_why": "Any weakness on a system that holds donor or organization data can be used to steal information or disrupt your work.",
+    "generic_fix": "Share the technical details below with the person or company that maintains this system and ask how they plan to fix it.",
+    "summary_none": "{org} has no open security findings in this assessment. Keep software updated and rescan regularly.",
+    "summary_counts": "{org} has {total} open security findings across {assets} systems: {critical} critical, {high} high, {medium} medium, and {low} low or informational.",
+    "summary_kev": "{kev} of them involve weaknesses that attackers are known to be actively using, so they should be handled first.",
+    "summary_grade_A": "Overall the organization is in good shape; the remaining items are routine maintenance.",
+    "summary_grade_B": "Overall the organization is in fairly good shape, with a few items that deserve attention soon.",
+    "summary_grade_C": "Overall the risk is moderate: nothing is on fire, but several items should be scheduled in the coming weeks.",
+    "summary_grade_D": "Overall the risk is elevated. At least one serious problem needs attention now.",
+    "summary_grade_F": "Overall the risk is high. Several serious problems need attention now, starting with the short list below.",
+    "summary_top": "Completing the top {n} fixes listed below would remove about {share}% of the total risk.",
+    "report_title": "Security Assessment Report",
+    "report_subtitle": "Prioritized findings and recommended fixes",
+    "prepared_for": "Prepared for",
+    "generated_on": "Generated on",
+    "confidential_notice": "Confidential. Prepared for the organization's leadership. Do not share outside the organization without approval.",
+    "data_note_mock": "This report was generated from demonstration (mock) data. It does not describe a real organization.",
+    "grade_label": "Overall security grade",
+    "grade_explainer": "The grade starts at 100 points and subtracts points for each open finding (more for higher priority). A is 90 or above, B 80, C 70, D 60, and F below 60. Any Critical finding caps the grade at D.",
+    "section_exec": "Executive summary",
+    "section_fix_first": "Fix these 3 things first",
+    "section_batches": "All recommended fixes",
+    "section_findings_by_asset": "Findings by system",
+    "section_frameworks": "Appendix: framework mapping",
+    "section_method": "How the ranking works",
+    "method_text": "Each finding gets a risk score: its technical severity (CVSS) multiplied by how exposed the system is, how important the system is to the organization, and whether attackers are already known to exploit the weakness. Scores are scaled to 0-100. Findings on CISA's Known Exploited Vulnerabilities list are never ranked below High.",
+    "frameworks_intro": "The findings in this report relate to the safeguards below. This table can help when answering grant applications and cyber-insurance questionnaires that ask how the organization manages security. The mapping is indicative, not a certification.",
+    "cis_heading": "CIS Controls v8 - Implementation Group 1",
+    "nist_heading": "NIST Cybersecurity Framework 2.0",
+    "col_framework_id": "ID",
+    "col_framework_title": "Safeguard",
+    "col_related_findings": "Related findings",
+    "tech_details": "Technical details",
+    "what_it_means": "What it means",
+    "why_it_matters": "Why it matters",
+    "how_to_fix": "How to fix it",
+    "platform_label": "Platform",
+    "platform_controlled_label": "Controlled by your website platform",
+    "sources_label": "Reported by",
+    "evidence_label": "Evidence",
+    "references_label": "References",
+    "score_label": "Risk score calculation",
+    "kev_badge_long": "Known to be exploited by attackers (CISA KEV)",
+    "exploit_badge_long": "Public exploit available",
+    "override_note": "Raised to at least High because attackers are known to exploit this weakness.",
+    "clears_text": "Clears {n} finding(s) on {a} system(s)",
+    "first_step": "First step",
+    "no_findings": "No findings.",
+    "lang_toggle": "Ver en español",
+    "scanner_description": "Scanner description",
+    "identifier_label": "Identifiers",
+    "changes_heading": "Changes since the previous run",
+    "changes_new": "New findings",
+    "changes_resolved": "Resolved findings",
+    "changes_worse": "Risk increased",
+    "changes_none": "No changes since the previous run.",
+    "calc_note": "Calculation = CVSS x exposure x importance x exploit factor, scaled to 0-100"
+  },
+  "platform_names": {
+    "wordpress": "WordPress",
+    "wix": "Wix",
+    "squarespace": "Squarespace",
+    "google_sites": "Google Sites",
+    "custom": "Custom / self-hosted"
+  },
+  "platform_guidance": {
+    "headers": {
+      "wordpress": {
+        "steps": [
+          "On WordPress, the simplest route is a well-reviewed security headers plugin, or ask your web host to add the header for you. Avoid editing server files by hand."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix controls this setting. You cannot change it yourself.",
+        "steps": [
+          "No action is available to you on Wix. Record this as a limitation of the platform; you may ask Wix support whether they plan to add this header."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace controls this setting. You cannot change it yourself.",
+        "steps": [
+          "No action is available to you on Squarespace. Record this as a limitation of the platform; you may ask Squarespace support whether they plan to add this header."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google Sites controls this setting. You cannot change it yourself.",
+        "steps": [
+          "No action is available to you on Google Sites. Record this as a limitation of the platform."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Ask whoever manages the web server (your hosting company or volunteer developer) to add the header in the server configuration."
+        ]
+      }
+    },
+    "tls": {
+      "wordpress": {
+        "steps": [
+          "Most WordPress hosts include a free certificate with automatic renewal. Check the SSL/HTTPS section of your hosting control panel first."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix manages HTTPS for you.",
+        "steps": [
+          "In the Wix dashboard, confirm that HTTPS/SSL is switched on for your domain. If the problem remains, contact Wix support."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace manages HTTPS for you.",
+        "steps": [
+          "In Squarespace settings, confirm that SSL is set to Secure. If the problem remains, contact Squarespace support."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google Sites manages HTTPS for you.",
+        "steps": [
+          "Confirm your custom domain is connected correctly in Google Sites. If the problem remains, contact Google Workspace support."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Ask your hosting provider to enable a free, automatically renewing certificate (for example Let's Encrypt)."
+        ]
+      }
+    },
+    "software": {
+      "wordpress": {
+        "steps": [
+          "Log in to the WordPress dashboard and open Dashboard > Updates. Update WordPress itself, then every plugin and theme.",
+          "Turn on automatic updates for plugins so this does not come back."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix updates its own software.",
+        "steps": [
+          "If this finding is in something you added yourself (a custom code snippet or embedded widget), update or remove it. Otherwise report it to Wix support."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace updates its own software.",
+        "steps": [
+          "If this finding is in something you added yourself (code injection or an embedded widget), update or remove it. Otherwise report it to Squarespace support."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google updates its own software.",
+        "steps": [
+          "If this finding is in an embedded widget you added, update or remove it. Otherwise no action is available to you."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Ask your developer or hosting provider to apply the update, and to tell you how updates will be handled from now on."
+        ]
+      }
+    },
+    "server": {
+      "wordpress": {
+        "steps": [
+          "Server software is managed by your web host, not inside WordPress. Send this finding to the host's support team and ask for a fix date."
+        ]
+      },
+      "wix": {
+        "controlled": true,
+        "note": "Wix runs the servers.",
+        "steps": [
+          "Report this finding to Wix support. If it concerns a server you run yourself, send it to whoever manages that server."
+        ]
+      },
+      "squarespace": {
+        "controlled": true,
+        "note": "Squarespace runs the servers.",
+        "steps": [
+          "Report this finding to Squarespace support."
+        ]
+      },
+      "google_sites": {
+        "controlled": true,
+        "note": "Google runs the servers.",
+        "steps": [
+          "No action is available to you; Google maintains the servers."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "Send this finding to whoever manages the server (hosting company, IT volunteer, or managed service provider)."
+        ]
+      }
+    },
+    "dns": {
+      "wix": {
+        "steps": [
+          "If your domain is connected through Wix, DNS records are edited on the Domains page of the Wix dashboard. Otherwise use your domain registrar's control panel."
+        ]
+      },
+      "squarespace": {
+        "steps": [
+          "If your domain is managed by Squarespace, DNS records are edited under Domains > DNS Settings. Otherwise use your domain registrar's control panel."
+        ]
+      },
+      "wordpress": {
+        "steps": [
+          "DNS records are changed where your domain is registered (the registrar's or web host's control panel), not inside WordPress."
+        ]
+      },
+      "google_sites": {
+        "steps": [
+          "DNS records are changed where your domain is registered, not inside Google Sites."
+        ]
+      },
+      "custom": {
+        "steps": [
+          "DNS records are changed in your domain registrar's or DNS host's control panel."
+        ]
+      }
+    }
+  },
+  "batch_titles": {
+    "upgrade:jquery>=3.5.0": "Upgrade jQuery to version 3.5.0 or later",
+    "upgrade:wordpress-plugins": "Update or remove vulnerable WordPress plugins",
+    "upgrade:wordpress-core": "Update WordPress to the latest version",
+    "upgrade:openssh>=9.8": "Update OpenSSH on the server",
+    "upgrade:apache-httpd>=2.4.51": "Update the Apache web server",
+    "upgrade:php-supported-version": "Move to a supported PHP version",
+    "patch:disable-smbv1": "Install the MS17-010 update and turn off SMBv1",
+    "replace:unsupported-operating-system": "Replace the unsupported operating system",
+    "access:change-default-credentials": "Change default passwords",
+    "access:enable-mfa": "Turn on multi-factor authentication for administrators",
+    "code:fix-sql-injection": "Fix the SQL injection flaw in the website code",
+    "code:fix-cross-site-scripting": "Fix the cross-site scripting flaw in the website code",
+    "remove:exposed-env-file": "Remove the exposed configuration file and change the passwords in it",
+    "remove:exposed-git-directory": "Block public access to the .git folder",
+    "remove:exposed-backup-files": "Remove backup files from the public website",
+    "config:disable-directory-listing": "Turn off directory listing",
+    "network:restrict-admin-interface": "Limit who can reach the admin login page",
+    "service:disable-telnet": "Turn off Telnet",
+    "service:disable-ftp": "Replace FTP with a secure alternative",
+    "network:restrict-remote-desktop": "Stop exposing Remote Desktop to the internet",
+    "network:restrict-database-port": "Close the database port to the internet",
+    "config:force-https": "Force HTTPS everywhere on the site",
+    "review:donation-page-scripts": "Review third-party scripts on the donation page",
+    "review:third-party-trackers": "Review third-party trackers on the website",
+    "content:publish-privacy-policy": "Publish and link a privacy policy",
+    "renew:tls-certificate": "Renew the website's security certificate",
+    "config:disable-legacy-tls": "Turn off outdated TLS versions",
+    "config:add-hsts-header": "Add the HSTS security header",
+    "config:add-csp-header": "Add a Content-Security-Policy header",
+    "config:add-x-frame-options-header": "Add clickjacking protection (X-Frame-Options)",
+    "config:add-x-content-type-options-header": "Add the X-Content-Type-Options header",
+    "config:add-referrer-policy-header": "Add a Referrer-Policy header",
+    "config:add-permissions-policy-header": "Add a Permissions-Policy header",
+    "config:secure-cookie-flags": "Set security flags on cookies",
+    "config:hide-server-version": "Hide server software versions",
+    "dns:add-dmarc-record": "Publish a DMARC record for your email domain",
+    "dns:enforce-dmarc-policy": "Strengthen the DMARC policy",
+    "dns:add-spf-record": "Publish a correct SPF record",
+    "dns:enable-dkim": "Turn on DKIM email signing",
+    "renew:domain-registration": "Renew the domain name and turn on auto-renew",
+    "access:reset-breached-passwords": "Reset passwords for accounts found in data breaches",
+    "monitor:lookalike-domains": "Review and report lookalike domains",
+    "incident:clean-flagged-site": "Clean the website and request removal from blocklists",
+    "inventory:review-unlisted-hosts": "Review public hostnames missing from the inventory"
+  },
+  "entries": {
+    "vulnerable-wp-plugin": {
+      "title": "Vulnerable WordPress plugin",
+      "what": "A plugin installed on the WordPress site has a known security hole. In the worst cases, a stranger can take control of the website without a password.",
+      "why": "Attackers scan the whole internet for sites running vulnerable plugins. A takeover could expose donor names, emails, and giving history, or turn your site into one that spreads malware to supporters.",
+      "fix": [
+        "Update the plugin named in the technical details to its latest version today.",
+        "If the plugin is no longer needed, deactivate and delete it.",
+        "Afterwards, check the Users page for administrator accounts you do not recognize."
+      ]
+    },
+    "outdated-wordpress-core": {
+      "title": "WordPress is out of date",
+      "what": "The website runs an old version of WordPress that is missing security fixes.",
+      "why": "Old WordPress versions have publicly known weaknesses that attackers use to deface sites or steal data.",
+      "fix": [
+        "Back up the site, then update WordPress from Dashboard > Updates.",
+        "Turn on automatic updates for minor releases."
+      ]
+    },
+    "outdated-jquery": {
+      "title": "Outdated jQuery library",
+      "what": "The website uses an old version of jQuery, a common building block for web pages. Old versions let an attacker run their own code in a visitor's browser under certain conditions.",
+      "why": "On a donation page, code running in a donor's browser could read what they type or redirect them to a fake page. This weakness is on the government's list of flaws attackers actively use.",
+      "fix": [
+        "Upgrade jQuery to version 3.5.0 or later. One upgrade clears all the jQuery findings at once.",
+        "After upgrading, click through the site's menus, forms, and donation page to confirm everything still works."
+      ],
+      "platform_fix": {
+        "wordpress": [
+          "Update WordPress, your theme, and all plugins from Dashboard > Updates; current WordPress ships a safe jQuery version.",
+          "If the finding remains, the old copy comes from a theme or plugin. Ask its developer for an update or replace it.",
+          "Afterwards, test the menus, forms, and donation page."
+        ]
+      }
+    },
+    "outdated-openssh": {
+      "title": "Outdated remote login software (OpenSSH)",
+      "what": "The server's remote administration service (SSH) is an old version with known security flaws.",
+      "why": "SSH is the door administrators use to manage the server. A flaw in it can give an attacker the same control an administrator has.",
+      "fix": [
+        "Ask whoever manages the server to install the operating system's latest security updates, which include OpenSSH.",
+        "Limit SSH access to the specific people or addresses that need it."
+      ]
+    },
+    "outdated-apache": {
+      "title": "Outdated web server software (Apache)",
+      "what": "The web server program that delivers the site is an old version with known security flaws. Some versions let a stranger read files that should be private.",
+      "why": "Attackers actively use this weakness. Private files on a web server often contain passwords that unlock other systems.",
+      "fix": [
+        "Ask the hosting provider or server administrator to update Apache to the latest version.",
+        "If the site is no longer needed, take it offline instead. An unused site is risk with no benefit."
+      ]
+    },
+    "outdated-php": {
+      "title": "Unsupported PHP version",
+      "what": "The website runs on a version of PHP (the programming language behind the site) that its makers no longer fix when security problems are found.",
+      "why": "New weaknesses in unsupported software are never repaired, so the site becomes easier to break into every month.",
+      "fix": [
+        "In your hosting control panel, switch the site to a currently supported PHP version (the panel usually offers a dropdown).",
+        "Test the site afterwards; very old plugins or themes may need updating too."
+      ]
+    },
+    "smbv1-enabled": {
+      "title": "Outdated file sharing (SMBv1) with a known attack",
+      "what": "The file server still accepts a decades-old file sharing method that has a famous, widely used attack against it.",
+      "why": "This exact weakness was used by the WannaCry ransomware. One infected laptop on the office network could lock every shared file, including donor and grant records.",
+      "fix": [
+        "Install the pending Windows security updates on the file server (specifically MS17-010).",
+        "Turn off SMBv1 in Windows features; modern computers do not need it.",
+        "Confirm that backups of the shared files exist and can be restored."
+      ]
+    },
+    "unsupported-os": {
+      "title": "Operating system no longer supported",
+      "what": "This computer runs an operating system that its maker has stopped updating.",
+      "why": "Every newly discovered weakness stays open forever. Insurers and grant makers often ask specifically whether any unsupported systems are in use.",
+      "fix": [
+        "Plan a move to a supported operating system version; ask your IT provider for a quote and timeline.",
+        "Until then, keep this computer off the public internet and limit who can connect to it.",
+        "Make sure its data is backed up somewhere else."
+      ]
+    },
+    "default-credentials": {
+      "title": "Default password still in use",
+      "what": "A system still accepts the username and password it shipped with from the factory or vendor.",
+      "why": "Default passwords are published online. Anyone who finds the login page can sign in as an administrator.",
+      "fix": [
+        "Change the password now to a long, unique one stored in a password manager.",
+        "Remove or rename the default account if the system allows it."
+      ]
+    },
+    "missing-mfa": {
+      "title": "Administrator login without multi-factor authentication",
+      "what": "Administrators can sign in with only a password. There is no second step such as a code from a phone app.",
+      "why": "Passwords get guessed, reused, and stolen in phishing emails. A second step stops most account takeovers even when the password is known.",
+      "fix": [
+        "Turn on multi-factor authentication (also called two-step verification) for every administrator account.",
+        "Prefer an authenticator app over text messages."
+      ],
+      "platform_fix": {
+        "wordpress": [
+          "Install a well-reviewed two-factor authentication plugin and require it for all Administrator and Editor accounts.",
+          "Prefer an authenticator app over text messages."
+        ]
+      }
+    },
+    "sql-injection": {
+      "title": "Website form can be used to read the database (SQL injection)",
+      "what": "A form or search box on the site passes what a visitor types straight into the database. A visitor who types special commands can read or change stored records.",
+      "why": "The database behind a donation site holds donor names, contact details, and giving history. This is one of the most common ways that data is stolen.",
+      "fix": [
+        "Send the technical details to the website's developer and ask for a fix using parameterized queries.",
+        "If the affected feature is not essential, switch it off until it is fixed.",
+        "Ask the developer to check the other forms for the same problem."
+      ]
+    },
+    "xss": {
+      "title": "Website can be tricked into running someone else's code (cross-site scripting)",
+      "what": "A page repeats text from the web address or a form without cleaning it, so a specially crafted link can make the page run an attacker's code in the visitor's browser.",
+      "why": "A supporter who clicks such a link sees your real website, but the attacker's code can alter the page, for example to change where a donation goes.",
+      "fix": [
+        "Send the technical details to the website's developer and ask them to encode all visitor-supplied text before showing it.",
+        "Ask them to check similar pages for the same problem."
+      ]
+    },
+    "exposed-env": {
+      "title": "Configuration file with passwords is publicly readable",
+      "what": "A settings file (.env) that normally holds database passwords and secret keys can be downloaded by anyone who knows the address.",
+      "why": "The passwords in this file may unlock the database and other services. Assume they have already been seen.",
+      "fix": [
+        "Ask the developer or host to block access to the file or move it outside the public website folder.",
+        "Change every password and key that was in the file. Removing the file is not enough.",
+        "Check for other hidden files exposed the same way."
+      ]
+    },
+    "exposed-git": {
+      "title": "Website source code folder is publicly readable",
+      "what": "A hidden folder (.git) that developers use to track changes was left on the public site. It allows anyone to download the website's source code and its history.",
+      "why": "Source code history often contains passwords and reveals exactly how the site works, which makes other attacks much easier.",
+      "fix": [
+        "Ask the developer or host to block public access to the .git folder or remove it from the server.",
+        "Have the developer check whether any passwords were ever saved in the code, and change those."
+      ]
+    },
+    "exposed-backup": {
+      "title": "Backup file is publicly downloadable",
+      "what": "A backup copy of the website or its database is sitting in a public folder where anyone can download it.",
+      "why": "Backups contain everything: donor records, user accounts, and passwords, all in one file.",
+      "fix": [
+        "Delete the backup file from the web server, or move it somewhere that is not public.",
+        "Store future backups off the web server.",
+        "If the backup held personal data, talk to leadership about whether anyone needs to be notified."
+      ]
+    },
+    "directory-listing": {
+      "title": "Web server lists the contents of folders",
+      "what": "When someone visits certain folders on the site, the server shows a list of every file in them instead of a web page.",
+      "why": "Visitors can browse and download files that were never meant to be found, such as old documents or backups.",
+      "fix": [
+        "Ask the host or developer to turn off directory listing (also called directory indexing).",
+        "Review the listed folders and remove anything that should not be public."
+      ]
+    },
+    "admin-interface-exposed": {
+      "title": "Admin login page is open to the whole internet",
+      "what": "The page where administrators sign in can be reached by anyone, anywhere.",
+      "why": "Attackers run programs that try thousands of passwords against login pages around the clock.",
+      "fix": [
+        "Turn on multi-factor authentication for all administrator accounts.",
+        "If possible, limit the login page to specific locations or put it behind an extra password.",
+        "Limit the number of sign-in attempts."
+      ]
+    },
+    "open-telnet": {
+      "title": "Insecure remote login service (Telnet) is open",
+      "what": "The server accepts Telnet, an old way to log in remotely that sends passwords without any protection.",
+      "why": "Anyone positioned between the administrator and the server can read the password as it travels.",
+      "fix": [
+        "Ask the server administrator to turn off Telnet. The secure replacement (SSH) is almost certainly already available."
+      ]
+    },
+    "open-rdp": {
+      "title": "Remote Desktop is open to the internet",
+      "what": "The Windows Remote Desktop service can be reached directly from the internet.",
+      "why": "Exposed Remote Desktop is one of the most common ways ransomware gets into small organizations.",
+      "fix": [
+        "Close Remote Desktop to the internet at the firewall.",
+        "If remote access is needed, use a VPN or a remote access tool that requires multi-factor authentication."
+      ]
+    },
+    "open-database-port": {
+      "title": "Database is reachable from the internet",
+      "what": "The database that stores the site's information accepts connections from anywhere on the internet, not only from the website itself.",
+      "why": "The database is where donor records live. Exposed databases are attacked with password guessing and known flaws every day.",
+      "fix": [
+        "Ask the hosting provider to restrict the database port so only the website server can connect.",
+        "Confirm the database accounts use strong, unique passwords."
+      ]
+    },
+    "open-ftp": {
+      "title": "Insecure file transfer service (FTP) is open",
+      "what": "The server accepts FTP, an old way to upload files that sends usernames and passwords without protection.",
+      "why": "A stolen FTP password lets an attacker change the website's files, for example to add a fake donation form.",
+      "fix": [
+        "Ask the host to turn off FTP and use SFTP (the secure version) instead.",
+        "Change the FTP passwords, since they may already have been seen."
+      ]
+    },
+    "donation-form-insecure": {
+      "title": "Donation page is not fully protected by HTTPS",
+      "what": "The donation page, or the form on it, sends information over an unprotected connection.",
+      "why": "Donors type their names, addresses, and payment details here. Without protection, that information can be read or altered on the way.",
+      "fix": [
+        "Make sure the donation page and its form both use addresses that start with https://.",
+        "Set the whole site to redirect to HTTPS automatically."
+      ]
+    },
+    "third-party-scripts-donation": {
+      "title": "Outside scripts run on the donation page",
+      "what": "The donation page loads program code from other companies (for example analytics, chat widgets, or advertising tools) in addition to the payment processor.",
+      "why": "Every outside script on a payment page can see what donors type. Criminals break into such script providers to skim card numbers; the fewer scripts, the lower the risk.",
+      "fix": [
+        "List each outside script on the donation page and ask: do we need this here?",
+        "Remove everything from the donation page that is not required to take the payment.",
+        "Keep the payment processor's own script; it is expected."
+      ]
+    },
+    "third-party-trackers": {
+      "title": "Third-party trackers on the website",
+      "what": "The site loads tracking tools from other companies that record what visitors do.",
+      "why": "Visitors to a nonprofit's site may be seeking help in sensitive situations. Trackers share their visit with advertising companies, and privacy laws may require disclosure or consent.",
+      "fix": [
+        "Decide which tracking tools the organization actually uses, and remove the rest.",
+        "List the remaining tools in the privacy policy."
+      ]
+    },
+    "missing-privacy-policy": {
+      "title": "No privacy policy link found",
+      "what": "The home page has no visible link to a privacy policy.",
+      "why": "Donors expect to know how their information is used. Payment processors, grant makers, and privacy laws commonly require a published policy.",
+      "fix": [
+        "Publish a short privacy policy that says what you collect, why, and who you share it with.",
+        "Link to it from the footer of every page."
+      ]
+    },
+    "tls-cert-invalid": {
+      "title": "Website security certificate is invalid or expired",
+      "what": "The certificate that proves the site's identity and protects connections has expired or cannot be verified.",
+      "why": "Visitors see a full-page browser warning telling them the site is not safe. Most will leave, and donations stop.",
+      "fix": [
+        "Renew or reissue the certificate today.",
+        "Turn on automatic renewal so this does not happen again."
+      ]
+    },
+    "tls-cert-expiring": {
+      "title": "Website security certificate expires soon",
+      "what": "The certificate that protects connections to the site will expire in the coming days.",
+      "why": "The day it expires, every visitor will see a browser warning that the site is not safe, and online donations will effectively stop.",
+      "fix": [
+        "Renew the certificate before it expires.",
+        "Turn on automatic renewal, and put a reminder on a shared calendar as a backup."
+      ]
+    },
+    "tls-legacy-protocols": {
+      "title": "Outdated encryption versions still accepted",
+      "what": "The site still accepts old versions of the technology that protects connections (TLS 1.0 and 1.1). These were retired years ago.",
+      "why": "Old versions have known weaknesses. Payment card rules do not allow them on pages that handle card payments.",
+      "fix": [
+        "Ask the host to turn off TLS 1.0 and 1.1 and keep TLS 1.2 and 1.3."
+      ]
+    },
+    "no-https-redirect": {
+      "title": "Site does not switch visitors to a secure connection",
+      "what": "Visitors who type the address without https:// stay on an unprotected connection.",
+      "why": "Anything they send or read can be seen or changed by others on the same network, such as public Wi-Fi.",
+      "fix": [
+        "Turn on the setting that redirects all visitors to HTTPS."
+      ]
+    },
+    "missing-hsts": {
+      "title": "Browsers are not told to always use a secure connection (HSTS)",
+      "what": "The site is missing a setting that tells browsers to use the protected (HTTPS) version every time.",
+      "why": "Without it, a visitor on public Wi-Fi can be silently steered to an unprotected copy of the site.",
+      "fix": [
+        "Add the Strict-Transport-Security header with a max-age of at least six months."
+      ]
+    },
+    "missing-csp": {
+      "title": "No content security policy",
+      "what": "The site is missing a setting that tells browsers which sources of scripts and content are allowed.",
+      "why": "This setting is a safety net: if an attacker manages to inject code into a page, the browser can refuse to run it.",
+      "fix": [
+        "Add a Content-Security-Policy header. Start in report-only mode so nothing breaks, then enforce it."
+      ]
+    },
+    "missing-x-frame-options": {
+      "title": "Site can be embedded inside another website (clickjacking)",
+      "what": "The site is missing a setting that stops other websites from displaying it inside an invisible frame.",
+      "why": "An attacker can lay your real page under a fake one and trick visitors into clicking buttons they cannot see.",
+      "fix": [
+        "Add the header X-Frame-Options: SAMEORIGIN (or the equivalent frame-ancestors rule)."
+      ]
+    },
+    "missing-x-content-type-options": {
+      "title": "Missing browser file-type protection",
+      "what": "The site is missing a small setting that stops browsers from guessing what type of file they received.",
+      "why": "Guessing can cause a harmless-looking upload to be treated as program code.",
+      "fix": [
+        "Add the header X-Content-Type-Options: nosniff."
+      ]
+    },
+    "missing-referrer-policy": {
+      "title": "No referrer policy",
+      "what": "The site does not limit what address information is passed along when a visitor clicks a link to another website.",
+      "why": "Page addresses can reveal what a visitor was looking at. This is a minor privacy improvement.",
+      "fix": [
+        "Add the header Referrer-Policy: strict-origin-when-cross-origin."
+      ]
+    },
+    "missing-permissions-policy": {
+      "title": "No permissions policy",
+      "what": "The site does not declare which device features (camera, microphone, location) its pages may use.",
+      "why": "Declaring that none are needed prevents embedded content from asking for them. This is a minor hardening step.",
+      "fix": [
+        "Add a Permissions-Policy header that switches off features the site does not use."
+      ]
+    },
+    "insecure-cookies": {
+      "title": "Login cookies are missing protection settings",
+      "what": "The site stores small files (cookies) in visitors' browsers without the settings that keep them private.",
+      "why": "A cookie often acts as the visitor's logged-in pass. Without these settings it is easier to steal.",
+      "fix": [
+        "Ask the developer to set the Secure, HttpOnly, and SameSite flags on all cookies."
+      ]
+    },
+    "server-version-disclosure": {
+      "title": "Server reveals its software versions",
+      "what": "The site announces exactly which software and version it runs.",
+      "why": "This tells attackers which known weaknesses to try first. It is a small issue by itself.",
+      "fix": [
+        "Ask the host to hide version numbers in the server's responses."
+      ]
+    },
+    "missing-dmarc": {
+      "title": "Anyone can send email that looks like it came from your organization (no DMARC)",
+      "what": "Your email domain has no DMARC record, the setting that tells other mail systems to reject fakes.",
+      "why": "Criminals can send convincing email from your exact address, including fake donation appeals to your supporters or fake invoices to your staff.",
+      "fix": [
+        "Publish a DMARC record for your domain. Start with a monitoring policy (p=none) that sends you reports.",
+        "After a few weeks of clean reports, change the policy to quarantine, then reject.",
+        "Your email provider's help pages have the exact record to add."
+      ]
+    },
+    "weak-dmarc-policy": {
+      "title": "Email spoofing protection is in watch-only mode",
+      "what": "Your domain has a DMARC record, but it only reports fake emails; it does not block them.",
+      "why": "Fake emails using your address are still delivered to supporters and staff.",
+      "fix": [
+        "Review the DMARC reports to confirm your real email passes.",
+        "Change the policy from p=none to p=quarantine, and later to p=reject."
+      ]
+    },
+    "missing-spf": {
+      "title": "Email sender list (SPF) is missing or too permissive",
+      "what": "Your domain does not publish a correct list of the mail systems allowed to send email on its behalf.",
+      "why": "Without it, other mail systems cannot tell your real email from forgeries, and your genuine messages are more likely to land in spam.",
+      "fix": [
+        "Publish an SPF record that lists your email provider and any mailing service you use, ending in ~all or -all.",
+        "Your email provider's help pages have the exact record to add."
+      ]
+    },
+    "missing-dkim": {
+      "title": "Email signing (DKIM) could not be confirmed",
+      "what": "No DKIM signing key was found under the names most providers use. DKIM lets receivers verify a message really came from you.",
+      "why": "Without DKIM, DMARC protection is weaker and your email is more likely to be marked as spam. This check can miss custom setups, so confirm it first.",
+      "fix": [
+        "Check your email provider's admin console for a DKIM setting and switch it on.",
+        "If it is already on, no action is needed."
+      ]
+    },
+    "domain-expiring": {
+      "title": "Domain name registration expires soon",
+      "what": "The registration for your website and email address is close to its expiration date.",
+      "why": "If it lapses, the website and all email stop working, and someone else can buy the name and impersonate you.",
+      "fix": [
+        "Renew the domain now for more than one year.",
+        "Turn on auto-renew and make sure the payment card on file is current.",
+        "Make sure the registrar account belongs to the organization, not to one person."
+      ]
+    },
+    "breach-exposure": {
+      "title": "Staff email addresses appear in known data breaches",
+      "what": "Email addresses at your domain appear in lists of accounts stolen from other companies' data breaches.",
+      "why": "If staff reused those passwords, attackers can sign in to your systems as them.",
+      "fix": [
+        "Ask the affected people to change passwords anywhere they reused the breached one.",
+        "Turn on multi-factor authentication for email and other key accounts.",
+        "Offer staff a password manager."
+      ]
+    },
+    "lookalike-domain": {
+      "title": "Lookalike domain names exist",
+      "what": "Someone has registered web addresses that look almost identical to yours.",
+      "why": "Lookalike addresses are used for fake donation pages and for emails that impersonate your staff.",
+      "fix": [
+        "Visit each lookalike address carefully (or ask your IT contact to) and see what is there.",
+        "Report any that impersonate you to the registrar and to your supporters.",
+        "Consider registering the most obvious variations yourself."
+      ]
+    },
+    "site-flagged-malicious": {
+      "title": "Website is flagged as dangerous",
+      "what": "A security service has flagged your website as harmful. Browsers may show visitors a red warning page.",
+      "why": "This usually means the site has been broken into. Visitors are being warned away, and search engines may hide the site.",
+      "fix": [
+        "Treat this as an incident: contact your web developer or host immediately.",
+        "Have the site cleaned and all passwords changed.",
+        "After cleaning, request a review from the service that flagged the site."
+      ]
+    },
+    "unknown-public-host": {
+      "title": "Public web addresses missing from your inventory",
+      "what": "Addresses under your domain were found that are not on the organization's list of systems.",
+      "why": "Forgotten sites do not get updated and are a common way in. You cannot protect what you do not know you have.",
+      "fix": [
+        "Find out what each address is and who owns it.",
+        "Shut down the ones no longer needed.",
+        "Add the rest to the asset inventory so they are included in future scans."
+      ]
+    },
+    "shared-hosting": {
+      "title": "Website shares a server with other websites",
+      "what": "The site is on a shared server alongside other, unrelated websites. This is normal for low-cost hosting.",
+      "why": "A break-in on a neighboring site can sometimes affect yours. It is worth knowing, especially for a site that takes donations.",
+      "fix": [
+        "No action is required. For a site that handles donations, consider asking your host about isolated hosting."
+      ]
+    }
+  }
+}

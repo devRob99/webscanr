@@ -1,0 +1,2945 @@
+{
+  "_comment": "Combined demo dataset: normalized findings from the mock HackerTarget, Quantro, and local-check sources, before deduplication and scoring. Placeholder assets only. Try it with: webscan prioritize --input data/mock_results.json --example-config. Regenerate with scripts/build_mock_results.py.",
+  "findings": [
+    {
+      "vulnerability_name": "Database port (MySQL) open to the internet",
+      "cve_id": null,
+      "base_severity": 7.5,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-a4ca9b5ef2",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "network:restrict-database-port",
+      "evidence": "Port 3306/tcp (mysql): MySQL 8.0.36",
+      "references": [],
+      "knowledge_id": "open-database-port",
+      "cis_ig1": [
+        "4.4",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.IR-01",
+        "PR.DS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Strict-Transport-Security (HSTS) header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-70eab27708",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-hsts-header",
+      "evidence": "Response has no strict-transport-security header",
+      "references": [],
+      "knowledge_id": "missing-hsts",
+      "cis_ig1": [
+        "4.1",
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-d5647ee623",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-b298a4008b",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-cc66277ca8",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-a5529e0b21",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-c5c7b3d933",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "X-Powered-By: PHP/7.4.33",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Unsupported PHP version (7.4) no longer receives security fixes",
+      "cve_id": null,
+      "base_severity": 7.5,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-3f03c486a3",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:php-supported-version",
+      "evidence": "X-Powered-By header: PHP/7.4.33 (Detected from the version banner; confirm the installed version before acting.)",
+      "references": [
+        "https://www.php.net/supported-versions.php"
+      ],
+      "knowledge_id": "outdated-php",
+      "cis_ig1": [
+        "2.2",
+        "7.4"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Strict-Transport-Security (HSTS) header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-70eab27708",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-hsts-header",
+      "evidence": "Response has no strict-transport-security header",
+      "references": [],
+      "knowledge_id": "missing-hsts",
+      "cis_ig1": [
+        "4.1",
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-d5647ee623",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-b298a4008b",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-cc66277ca8",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-a5529e0b21",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-c5c7b3d933",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "X-Powered-By: PHP/7.4.33",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "TLS certificate expires in 12 day(s)",
+      "cve_id": null,
+      "base_severity": 5.0,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-4d7dec0866",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "renew:tls-certificate",
+      "evidence": "Certificate expires in 12 day(s) (warning threshold 30)",
+      "references": [],
+      "knowledge_id": "tls-cert-expiring",
+      "cis_ig1": [
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Deprecated TLS versions are still accepted",
+      "cve_id": null,
+      "base_severity": 5.9,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-f5e8cf5abd",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:disable-legacy-tls",
+      "evidence": "Server accepted: TLS 1.0, TLS 1.1",
+      "references": [],
+      "knowledge_id": "tls-legacy-protocols",
+      "cis_ig1": [
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Cookies set without Secure, HttpOnly, or SameSite flags",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-83ff94c092",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:secure-cookie-flags",
+      "evidence": "Cookies: wp_donor_session (missing Secure, HttpOnly, SameSite); wp_lang (missing HttpOnly)",
+      "references": [],
+      "knowledge_id": "insecure-cookies",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "3 third-party script source(s) load on the donation page",
+      "cve_id": null,
+      "base_severity": 5.4,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-897df1e067",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "review:donation-page-scripts",
+      "evidence": "Path /donate/. Payment processor: Stripe. Other script sources: cdn.example.net, connect.facebook.net, www.googletagmanager.com",
+      "references": [],
+      "knowledge_id": "third-party-scripts-donation",
+      "cis_ig1": [
+        "15.1"
+      ],
+      "nist_csf": [
+        "GV.SC-07"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-95229296cb",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-d166465274",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-aee803534b",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-9359f9d082",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-95229296cb",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-d166465274",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-aee803534b",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-9359f9d082",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "2 third-party tracker(s) found on the website",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-3e7caae189",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "review:third-party-trackers",
+      "evidence": "Trackers: Google Tag Manager, Hotjar",
+      "references": [],
+      "knowledge_id": "third-party-trackers",
+      "cis_ig1": [
+        "15.1",
+        "3.1"
+      ],
+      "nist_csf": [
+        "GV.OC-03",
+        "GV.SC-07"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "2 public hostname(s) not in the asset inventory",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-4c26ad4606",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "inventory:review-unlisted-hosts",
+      "evidence": "Hostnames found in public DNS data: [REDACTED-HOST], [REDACTED-HOST]",
+      "references": [],
+      "knowledge_id": "unknown-public-host",
+      "cis_ig1": [
+        "1.1"
+      ],
+      "nist_csf": [
+        "ID.AM-01",
+        "ID.AM-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "No DMARC record: anyone can send email that appears to come from the domain",
+      "cve_id": null,
+      "base_severity": 6.5,
+      "asset_name": "main-website",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-a86d524953",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "dns:add-dmarc-record",
+      "evidence": "No DMARC TXT record found at _dmarc",
+      "references": [],
+      "knowledge_id": "missing-dmarc",
+      "cis_ig1": [
+        "14.2",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.AT-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "wix",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "FTP file transfer service open to the internet",
+      "cve_id": null,
+      "base_severity": 6.5,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-8fb651b643",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "service:disable-ftp",
+      "evidence": "Port 21/tcp (ftp): vsftpd 3.0.3",
+      "references": [],
+      "knowledge_id": "open-ftp",
+      "cis_ig1": [
+        "4.6",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-02",
+        "PR.IR-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Apache HTTP Server 2.4.49: path traversal and file disclosure",
+      "cve_id": "CVE-2021-41773",
+      "base_severity": 7.5,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a94a070a02",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:apache-httpd>=2.4.51",
+      "evidence": "Port 80/tcp (http): Apache httpd 2.4.49 ((Unix)) (Detected from the version banner; confirm the installed version before acting.)",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2021-41773"
+      ],
+      "knowledge_id": "outdated-apache",
+      "cis_ig1": [
+        "7.3",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a91211aa55",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Content-Type-Options header",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a4bfa78e39",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-content-type-options-header",
+      "evidence": "Response has no x-content-type-options header",
+      "references": [],
+      "knowledge_id": "missing-x-content-type-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a8148e746f",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-922135b7cb",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-4cd8eacac5",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-88917567ba",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "Server: Apache/2.4.49 (Unix)",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Apache HTTP Server 2.4.49: path traversal and file disclosure",
+      "cve_id": "CVE-2021-41773",
+      "base_severity": 7.5,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a94a070a02",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:apache-httpd>=2.4.51",
+      "evidence": "Server header: Apache/2.4.49 (Unix) (Detected from the version banner; confirm the installed version before acting.)",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2021-41773"
+      ],
+      "knowledge_id": "outdated-apache",
+      "cis_ig1": [
+        "7.3",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-4cd8eacac5",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Nikto: /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Content-Type-Options header",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a4bfa78e39",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-content-type-options-header",
+      "evidence": "Nikto: /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type.",
+      "references": [],
+      "knowledge_id": "missing-x-content-type-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Outdated Apache HTTP Server",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-e5e8782d83",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:apache-httpd>=2.4.51",
+      "evidence": "Nikto: Apache/2.4.49 appears to be outdated (current is at least Apache/2.4.62).",
+      "references": [],
+      "knowledge_id": "outdated-apache",
+      "cis_ig1": [
+        "7.3",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Directory listing enabled",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-efc7df51f3",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:disable-directory-listing",
+      "evidence": "Nikto: /files/: Directory indexing found.",
+      "references": [],
+      "knowledge_id": "directory-listing",
+      "cis_ig1": [
+        "4.1",
+        "3.3"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Backup file exposed on the web server",
+      "cve_id": null,
+      "base_severity": 7.5,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-86cae1d918",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "remove:exposed-backup-files",
+      "evidence": "Nikto: /files/site-backup-2019.zip: Backup archive found in a web-accessible directory.",
+      "references": [],
+      "knowledge_id": "exposed-backup",
+      "cis_ig1": [
+        "3.3",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Admin interface reachable from the internet",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-c8bccd938f",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "network:restrict-admin-interface",
+      "evidence": "Nikto: /admin/: This might be interesting: an admin login page was found.",
+      "references": [],
+      "knowledge_id": "admin-interface-exposed",
+      "cis_ig1": [
+        "4.1",
+        "6.5"
+      ],
+      "nist_csf": [
+        "PR.IR-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Outdated jQuery library",
+      "cve_id": null,
+      "base_severity": 6.1,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-b8e2b203f6",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "Nikto: /js/jquery-1.12.4.min.js: jQuery 1.12.4 is in use and appears to be outdated.",
+      "references": [],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "/icons/README: Apache default file found.",
+      "cve_id": null,
+      "base_severity": 3.0,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-51a2b3f707",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": null,
+      "evidence": "Nikto: /icons/README: Apache default file found.",
+      "references": [],
+      "knowledge_id": null,
+      "cis_ig1": [],
+      "nist_csf": [],
+      "data_source": "mock",
+      "description": "/icons/README: Apache default file found.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a91211aa55",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Content-Type-Options header",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a4bfa78e39",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-content-type-options-header",
+      "evidence": "Response has no x-content-type-options header",
+      "references": [],
+      "knowledge_id": "missing-x-content-type-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a8148e746f",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-922135b7cb",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Frame-Options header (clickjacking protection)",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-4cd8eacac5",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-frame-options-header",
+      "evidence": "Response has no x-frame-options header and no CSP frame-ancestors directive",
+      "references": [],
+      "knowledge_id": "missing-x-frame-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-88917567ba",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "Server: Apache/2.4.49 (Unix)",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Site does not redirect to HTTPS",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-1c65c5117c",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:force-https",
+      "evidence": "http:// request answered with HTTP 200 and no redirect to https://",
+      "references": [],
+      "knowledge_id": "no-https-redirect",
+      "cis_ig1": [
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "No privacy policy link found on the home page",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-a3d8af7e63",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "content:publish-privacy-policy",
+      "evidence": "No link whose address or text mentions a privacy policy",
+      "references": [],
+      "knowledge_id": "missing-privacy-policy",
+      "cis_ig1": [
+        "3.1"
+      ],
+      "nist_csf": [
+        "GV.OC-03"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Backup file exposed on the web server",
+      "cve_id": null,
+      "base_severity": 7.5,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-86cae1d918",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "remove:exposed-backup-files",
+      "evidence": "GET /backup.zip returned HTTP 200 (28 bytes). Contents were not stored.",
+      "references": [],
+      "knowledge_id": "exposed-backup",
+      "cis_ig1": [
+        "3.3",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server is shared with 5 other website(s)",
+      "cve_id": null,
+      "base_severity": 0.0,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-40d345147e",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "info:shared-hosting",
+      "evidence": "6 hostnames resolve to this IP address (names withheld)",
+      "references": [],
+      "knowledge_id": "shared-hosting",
+      "cis_ig1": [
+        "15.1"
+      ],
+      "nist_csf": [
+        "GV.SC-07"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "OpenSSH before 9.3p2: remote code execution via forwarded ssh-agent",
+      "cve_id": "CVE-2023-38408",
+      "base_severity": 9.8,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-bca271ae3b",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:openssh>=9.8",
+      "evidence": "Port 22/tcp (ssh): OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0) (Detected from the version banner; confirm the installed version before acting.)",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-38408"
+      ],
+      "knowledge_id": "outdated-openssh",
+      "cis_ig1": [
+        "7.3",
+        "12.1"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Telnet remote login service open to the internet",
+      "cve_id": null,
+      "base_severity": 8.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-8aa84b45ab",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "service:disable-telnet",
+      "evidence": "Port 23/tcp (telnet): Linux telnetd",
+      "references": [],
+      "knowledge_id": "open-telnet",
+      "cis_ig1": [
+        "4.6",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-02",
+        "PR.IR-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-58ea0e1c86",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Content-Type-Options header",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-8771c8079e",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-content-type-options-header",
+      "evidence": "Response has no x-content-type-options header",
+      "references": [],
+      "knowledge_id": "missing-x-content-type-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-afa8d3e82e",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-94ac3b29e2",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-e96b464cfb",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "Server: nginx/1.18.0 (Ubuntu)",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "OpenSSH < 9.3p2 Remote Code Execution Vulnerability",
+      "cve_id": "CVE-2023-38408",
+      "base_severity": 9.8,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-bca271ae3b",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:openssh>=9.8",
+      "evidence": "OpenVAS: port 22/tcp",
+      "references": [],
+      "knowledge_id": "outdated-openssh",
+      "cis_ig1": [
+        "7.3",
+        "12.1"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The PKCS#11 feature in ssh-agent has an insufficiently trustworthy search path, leading to remote code execution if an agent is forwarded to an attacker-controlled system.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery < 3.5.0 Multiple XSS Vulnerabilities",
+      "cve_id": "CVE-2020-11022",
+      "base_severity": 6.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-6d06046d55",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "OpenVAS: port 80/tcp",
+      "references": [],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The installed jQuery library passes untrusted HTML to DOM manipulation methods, which may execute untrusted code.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery < 3.5.0 Multiple XSS Vulnerabilities",
+      "cve_id": "CVE-2020-11023",
+      "base_severity": 6.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-9bbe9ed538",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "OpenVAS: port 80/tcp",
+      "references": [],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The installed jQuery library passes untrusted HTML to DOM manipulation methods, which may execute untrusted code.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Telnet Unencrypted Cleartext Login",
+      "cve_id": null,
+      "base_severity": 4.8,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-8aa84b45ab",
+      "sources": [
+        "hackertarget"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "service:disable-telnet",
+      "evidence": "OpenVAS: port 23/tcp",
+      "references": [],
+      "knowledge_id": "open-telnet",
+      "cis_ig1": [
+        "4.6",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-02",
+        "PR.IR-01"
+      ],
+      "data_source": "mock",
+      "description": "The remote host is running a Telnet service that allows cleartext logins over unencrypted connections.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Content-Security-Policy header",
+      "cve_id": null,
+      "base_severity": 4.3,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-58ea0e1c86",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-csp-header",
+      "evidence": "Response has no content-security-policy header",
+      "references": [],
+      "knowledge_id": "missing-csp",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing X-Content-Type-Options header",
+      "cve_id": null,
+      "base_severity": 3.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-8771c8079e",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-x-content-type-options-header",
+      "evidence": "Response has no x-content-type-options header",
+      "references": [],
+      "knowledge_id": "missing-x-content-type-options",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Referrer-Policy header",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-afa8d3e82e",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-referrer-policy-header",
+      "evidence": "Response has no referrer-policy header",
+      "references": [],
+      "knowledge_id": "missing-referrer-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Permissions-Policy header",
+      "cve_id": null,
+      "base_severity": 2.0,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-94ac3b29e2",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-permissions-policy-header",
+      "evidence": "Response has no permissions-policy header",
+      "references": [],
+      "knowledge_id": "missing-permissions-policy",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Server software version disclosure in HTTP headers",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-e96b464cfb",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:hide-server-version",
+      "evidence": "Server: nginx/1.18.0 (Ubuntu)",
+      "references": [],
+      "knowledge_id": "server-version-disclosure",
+      "cis_ig1": [
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Site does not redirect to HTTPS",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-fdc6f01f72",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:force-https",
+      "evidence": "http:// request answered with HTTP 200 and no redirect to https://",
+      "references": [],
+      "knowledge_id": "no-https-redirect",
+      "cis_ig1": [
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "No privacy policy link found on the home page",
+      "cve_id": null,
+      "base_severity": 2.6,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-8a30683d5c",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "content:publish-privacy-policy",
+      "evidence": "No link whose address or text mentions a privacy policy",
+      "references": [],
+      "knowledge_id": "missing-privacy-policy",
+      "cis_ig1": [
+        "3.1"
+      ],
+      "nist_csf": [
+        "GV.OC-03"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Exposed .git repository",
+      "cve_id": null,
+      "base_severity": 7.5,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-038b2793f5",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "remove:exposed-git-directory",
+      "evidence": "GET /.git/HEAD returned HTTP 200 (21 bytes). Contents were not stored.",
+      "references": [],
+      "knowledge_id": "exposed-git",
+      "cis_ig1": [
+        "3.3",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Exposed .env configuration file",
+      "cve_id": null,
+      "base_severity": 9.1,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-875c3ee8a0",
+      "sources": [
+        "local"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "remove:exposed-env-file",
+      "evidence": "GET /.env returned HTTP 200 (60 bytes). Contents were not stored.",
+      "references": [],
+      "knowledge_id": "exposed-env",
+      "cis_ig1": [
+        "3.3",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.DS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "WordPress plugin File Manager: unauthenticated file upload",
+      "cve_id": "CVE-2020-25213",
+      "base_severity": 9.8,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": true,
+      "finding_id": "F-257cabb757",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:wordpress-plugins",
+      "evidence": "https://donor-portal/wp-content/plugins/wp-file-manager/",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-25213"
+      ],
+      "knowledge_id": "vulnerable-wp-plugin",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The installed File Manager plugin version allows anyone on the internet to upload and run files on the web server without logging in.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery 1.12.4: cross-site scripting in HTML manipulation methods",
+      "cve_id": "CVE-2020-11023",
+      "base_severity": 6.1,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-e369c4800d",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "https://donor-portal/wp-includes/js/jquery/jquery.js",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-11023"
+      ],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The page loads an old jQuery version that can run attacker-supplied script when untrusted HTML is inserted into the page.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery 1.12.4: cross-site scripting via htmlPrefilter",
+      "cve_id": "CVE-2020-11022",
+      "base_severity": 6.1,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-92fe255573",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "https://donor-portal/wp-includes/js/jquery/jquery.js",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-11022"
+      ],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "Old jQuery versions mishandle HTML from untrusted sources.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery 1.12.4: prototype pollution in jQuery.extend",
+      "cve_id": "CVE-2019-11358",
+      "base_severity": 6.1,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-90b6239975",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "https://donor-portal/wp-includes/js/jquery/jquery.js",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
+      ],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "Old jQuery versions allow modification of built-in object behavior.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "SQL injection in donation search form",
+      "cve_id": null,
+      "base_severity": 8.6,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-d6725cbed6",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "code:fix-sql-injection",
+      "evidence": "https://donor-portal/campaigns/search?q=",
+      "references": [
+        "https://owasp.org/www-community/attacks/SQL_Injection"
+      ],
+      "knowledge_id": "sql-injection",
+      "cis_ig1": [
+        "7.1",
+        "7.2"
+      ],
+      "nist_csf": [
+        "PR.PS-06",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The search box passes what a visitor types directly into a database query, so a visitor could read donor records from the database.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Reflected cross-site scripting (XSS) in campaign page",
+      "cve_id": null,
+      "base_severity": 6.1,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-2d3dc4fa25",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "code:fix-cross-site-scripting",
+      "evidence": "https://donor-portal/campaigns/view?name=",
+      "references": [
+        "https://owasp.org/www-community/attacks/xss/"
+      ],
+      "knowledge_id": "xss",
+      "cis_ig1": [
+        "7.1",
+        "7.2"
+      ],
+      "nist_csf": [
+        "PR.PS-06",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The campaign page repeats part of the web address back to the visitor without cleaning it.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Missing Strict-Transport-Security (HSTS) header",
+      "cve_id": null,
+      "base_severity": 5.5,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-70eab27708",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:add-hsts-header",
+      "evidence": "https://donor-portal/",
+      "references": [],
+      "knowledge_id": "missing-hsts",
+      "cis_ig1": [
+        "4.1",
+        "4.6"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.DS-02"
+      ],
+      "data_source": "mock",
+      "description": "The site does not tell browsers to always use a secure connection.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Administrator login does not require multi-factor authentication",
+      "cve_id": null,
+      "base_severity": 6.5,
+      "asset_name": "donor-portal",
+      "exposure_tier": "public",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-b64e337117",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "access:enable-mfa",
+      "evidence": "https://donor-portal/wp-login.php",
+      "references": [],
+      "knowledge_id": "missing-mfa",
+      "cis_ig1": [
+        "6.3",
+        "6.5"
+      ],
+      "nist_csf": [
+        "PR.AA-03"
+      ],
+      "data_source": "mock",
+      "description": "Administrator accounts can sign in with only a password.",
+      "platform": "wordpress",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "jQuery 1.12.4: cross-site scripting in HTML manipulation methods",
+      "cve_id": "CVE-2020-11023",
+      "base_severity": 6.1,
+      "asset_name": "archived-brochure-site",
+      "exposure_tier": "public",
+      "asset_criticality": 1,
+      "has_known_exploit": false,
+      "finding_id": "F-490c446ac0",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "upgrade:jquery>=3.5.0",
+      "evidence": "http://archived-brochure-site/js/jquery-1.12.4.min.js",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2020-11023"
+      ],
+      "knowledge_id": "outdated-jquery",
+      "cis_ig1": [
+        "7.4",
+        "2.2"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.RA-01"
+      ],
+      "data_source": "mock",
+      "description": "The page loads an old jQuery version that can run attacker-supplied script when untrusted HTML is inserted into the page.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Default administrator credentials accepted on staging CMS",
+      "cve_id": null,
+      "base_severity": 9.8,
+      "asset_name": "staging-site",
+      "exposure_tier": "staging",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-3f8001c6a2",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "access:change-default-credentials",
+      "evidence": "http://staging-site:8080/admin/",
+      "references": [],
+      "knowledge_id": "default-credentials",
+      "cis_ig1": [
+        "4.7",
+        "5.2"
+      ],
+      "nist_csf": [
+        "PR.AA-01"
+      ],
+      "data_source": "mock",
+      "description": "The staging content management system still accepts the vendor's default administrator username and password.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "SMBv1 enabled: remote code execution (EternalBlue, MS17-010)",
+      "cve_id": "CVE-2017-0144",
+      "base_severity": 8.1,
+      "asset_name": "file-server",
+      "exposure_tier": "internal",
+      "asset_criticality": 3,
+      "has_known_exploit": true,
+      "finding_id": "F-71667233b6",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "patch:disable-smbv1",
+      "evidence": "smb://file-server",
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2017-0144"
+      ],
+      "knowledge_id": "smbv1-enabled",
+      "cis_ig1": [
+        "7.3",
+        "4.1"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "PR.PS-01"
+      ],
+      "data_source": "mock",
+      "description": "The file server still accepts the outdated SMBv1 file sharing protocol and is missing the MS17-010 security update.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Operating system is end of life and no longer supported",
+      "cve_id": null,
+      "base_severity": 9.0,
+      "asset_name": "file-server",
+      "exposure_tier": "internal",
+      "asset_criticality": 3,
+      "has_known_exploit": false,
+      "finding_id": "F-8eb0f80088",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "replace:unsupported-operating-system",
+      "evidence": "",
+      "references": [],
+      "knowledge_id": "unsupported-os",
+      "cis_ig1": [
+        "2.2",
+        "7.3"
+      ],
+      "nist_csf": [
+        "PR.PS-02",
+        "ID.AM-02"
+      ],
+      "data_source": "mock",
+      "description": "The file server runs an operating system version that no longer receives security updates from the vendor.",
+      "platform": "custom",
+      "asset_known": true,
+      "score_breakdown": {}
+    },
+    {
+      "vulnerability_name": "Directory listing enabled",
+      "cve_id": null,
+      "base_severity": 5.3,
+      "asset_name": "unlisted-asset-21302b",
+      "exposure_tier": "public",
+      "asset_criticality": 2,
+      "has_known_exploit": false,
+      "finding_id": "F-482efe19c9",
+      "sources": [
+        "quantro"
+      ],
+      "epss_score": null,
+      "in_cisa_kev": false,
+      "risk_score": 0.0,
+      "priority": "Info",
+      "remediation_key": "config:disable-directory-listing",
+      "evidence": "http://[REDACTED-HOST]/uploads/",
+      "references": [],
+      "knowledge_id": "directory-listing",
+      "cis_ig1": [
+        "4.1",
+        "3.3"
+      ],
+      "nist_csf": [
+        "PR.PS-01",
+        "PR.AA-05"
+      ],
+      "data_source": "mock",
+      "description": "The web server shows a list of every file in the uploads folder.",
+      "platform": null,
+      "asset_known": false,
+      "score_breakdown": {}
+    }
+  ]
+}

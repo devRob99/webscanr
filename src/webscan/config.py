@@ -38,7 +38,7 @@ DEFAULT_SCORING: dict[str, Any] = {
     "bands": {"Critical": 60, "High": 40, "Medium": 20, "Low": 5, "Info": 0},
     "exploit_override_min_priority": "High",
     "grade": {
-        "penalties": {"Critical": 15, "High": 7, "Medium": 3, "Low": 1, "Info": 0},
+        "penalties": {"Critical": 15, "High": 5, "Medium": 1.5, "Low": 0.25, "Info": 0},
         "thresholds": {"A": 90, "B": 80, "C": 70, "D": 60},
         "critical_caps_at": "D",
     },

@@ -1,0 +1,51 @@
+{
+  "http": {
+    "http://donate.example.org/": {
+      "status": 301,
+      "headers": {
+        "Location": "https://donate.example.org/"
+      }
+    },
+    "https://donate.example.org/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "nginx",
+        "X-Powered-By": "PHP/7.4.33",
+        "X-Content-Type-Options": "nosniff",
+        "Link": "<https://donate.example.org/wp-json/>; rel=\"https://api.w.org/\""
+      },
+      "body": "<!doctype html><html><head><title>Donate</title>\n<meta name=\"generator\" content=\"WordPress 6.4\">\n<script src=\"/wp-includes/js/jquery/jquery.js?ver=1.12.4\"></script>\n</head><body><a href=\"/donate/\">Give today</a> <a href=\"/privacy-policy/\">Privacy Policy</a></body></html>",
+      "set_cookies": [
+        "wp_donor_session=placeholder; path=/",
+        "wp_lang=en; path=/; Secure; SameSite=Lax"
+      ]
+    },
+    "https://donate.example.org/donate/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "nginx",
+        "X-Powered-By": "PHP/7.4.33",
+        "X-Content-Type-Options": "nosniff",
+        "Link": "<https://donate.example.org/wp-json/>; rel=\"https://api.w.org/\""
+      },
+      "body": "<!doctype html><html><head><title>Give today</title>\n<script src=\"/wp-includes/js/jquery/jquery.js?ver=1.12.4\"></script>\n<script src=\"https://js.stripe.com/v3/\"></script>\n<script src=\"https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER\"></script>\n<script src=\"https://connect.facebook.net/en_US/fbevents.js\"></script>\n<script src=\"https://cdn.example.net/widgets/chat.js\"></script>\n</head><body><form action=\"https://donate.example.org/donate/submit\" method=\"post\">\n<input name=\"amount\"><button>Donate</button></form>\n<a href=\"/privacy-policy/\">Privacy Policy</a></body></html>"
+    }
+  },
+  "not_found": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "body": "<html><body>Page not found</body></html>"
+  },
+  "tls": {
+    "valid": true,
+    "days_remaining": 12,
+    "legacy_protocols": [
+      "TLS 1.0",
+      "TLS 1.1"
+    ]
+  }
+}

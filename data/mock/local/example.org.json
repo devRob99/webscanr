@@ -1,0 +1,31 @@
+{
+  "http": {
+    "http://example.org/": {
+      "status": 301,
+      "headers": {
+        "Location": "https://www.example.org/"
+      }
+    },
+    "https://example.org/": {
+      "status": 301,
+      "headers": {
+        "Location": "https://www.example.org/"
+      }
+    }
+  },
+  "tls": {
+    "valid": true,
+    "days_remaining": 74,
+    "legacy_protocols": []
+  },
+  "dns": {
+    "example.org": [
+      "v=spf1 include:_spf.example.net ~all",
+      "placeholder-site-verification=000000"
+    ],
+    "_dmarc.example.org": [],
+    "selector1._domainkey.example.org": [
+      "v=DKIM1; k=rsa; p=PLACEHOLDERPUBLICKEY"
+    ]
+  }
+}

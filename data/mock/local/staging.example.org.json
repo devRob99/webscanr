@@ -1,0 +1,34 @@
+{
+  "http": {
+    "http://staging.example.org/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "nginx/1.18.0 (Ubuntu)",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "body": "<!doctype html><html><head><title>STAGING</title></head>\n<body><p>Staging copy. Not for public use.</p></body></html>"
+    },
+    "http://staging.example.org/.git/HEAD": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "body": "ref: refs/heads/main\n"
+    },
+    "http://staging.example.org/.env": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "body": "APP_ENV=staging\nDB_HOST=placeholder\nDB_PASSWORD=placeholder\n"
+    }
+  },
+  "not_found": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "body": "<html><body>404</body></html>"
+  }
+}

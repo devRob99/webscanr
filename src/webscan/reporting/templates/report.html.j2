@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ ui.report_title }} - {{ meta.organization }}</title>
+<style>
+  :root { --ink:#1f2933; --muted:#5b6672; --line:#d9dee4; --soft:#f4f6f8; --accent:#0b5cad; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink);
+         margin: 0; line-height: 1.5; background: #fff; font-size: 15px; }
+  main { max-width: 900px; margin: 0 auto; padding: 0 28px 60px; }
+  h1 { font-size: 2.2rem; margin: 0 0 .3em; }
+  h2 { font-size: 1.45rem; margin: 2.2em 0 .6em; padding-bottom: .25em; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.4em 0 .4em; }
+  p { margin: .5em 0; }
+  a { color: var(--accent); }
+  .cover { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 0;
+           border-bottom: 1px solid var(--line); }
+  .cover .sub { font-size: 1.2rem; color: var(--muted); margin-bottom: 2.5em; }
+  .cover dl { display: grid; grid-template-columns: max-content 1fr; gap: .3em 1.2em; margin: 0 0 2em; }
+  .cover dt { color: var(--muted); } .cover dd { margin: 0; font-weight: 600; }
+  .notice { font-size: .85rem; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; }
+  .mock { background: #fdf2ff; border: 1px solid #d8a8e6; color: #6a1b7d; padding: 10px 14px; border-radius: 6px;
+          font-weight: 600; margin: 1em 0; }
+  .lang { position: absolute; top: 16px; right: 24px; font-size: .9rem; }
+  .gradebox { display: flex; gap: 24px; align-items: center; background: var(--soft); border-radius: 10px;
+              padding: 20px 24px; margin: 1em 0; }
+  .grade { width: 96px; height: 96px; border-radius: 50%; color: #fff; font-size: 3rem; font-weight: 700;
+           display: flex; align-items: center; justify-content: center; flex: none; }
+  .counts { display: flex; gap: 10px; flex-wrap: wrap; margin: .8em 0; }
+  .pill { color: #fff; border-radius: 999px; padding: 2px 12px; font-size: .85rem; font-weight: 600;
+          white-space: nowrap; display: inline-block; }
+  .badge { border: 1px solid #c62828; color: #c62828; border-radius: 4px; padding: 0 6px; font-size: .75rem;
+           font-weight: 700; white-space: nowrap; }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin: 12px 0;
+          break-inside: avoid; }
+  .card.first { border-left: 6px solid #2e7d32; }
+  .card h3 { margin-top: 0; }
+  .num { display: inline-block; width: 1.9em; height: 1.9em; line-height: 1.9em; text-align: center;
+         border-radius: 50%; background: #2e7d32; color: #fff; font-weight: 700; margin-right: .5em; }
+  .meta { color: var(--muted); font-size: .88rem; }
+  table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: .9rem; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  .finding { border: 1px solid var(--line); border-left-width: 6px; border-radius: 8px; padding: 12px 16px;
+             margin: 12px 0; break-inside: avoid; }
+  .finding h4 { margin: 0 0 .35em; font-size: 1.02rem; }
+  .finding .label { font-weight: 600; margin-top: .6em; }
+  .finding ol { margin: .3em 0 .3em 1.3em; padding: 0; }
+  .platform { background: #fff8e1; border: 1px solid #f0d58c; border-radius: 6px; padding: 6px 10px;
+              font-size: .9rem; margin: .5em 0; }
+  details { margin-top: .7em; background: var(--soft); border-radius: 6px; padding: 6px 12px; font-size: .86rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  details dl { display: grid; grid-template-columns: max-content 1fr; gap: .25em 1em; margin: .6em 0; }
+  details dt { color: var(--muted); } details dd { margin: 0; overflow-wrap: anywhere; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; }
+  .spot { background: #eef7ee; border: 1px solid #b7dbb8; border-radius: 8px; padding: 12px 16px; margin: 1em 0; }
+  footer { color: var(--muted); font-size: .8rem; margin-top: 3em; border-top: 1px solid var(--line);
+           padding-top: 1em; }
+  @media print {
+    body { font-size: 11pt; } main { max-width: none; padding: 0 8mm; }
+    .cover { min-height: 250mm; page-break-after: always; border: 0; }
+    h2 { page-break-after: avoid; } .lang { display: none; }
+    details { display: block; } details > summary { list-style: none; }
+    .pill, .grade, .num, th, .gradebox, .mock, .platform, .spot, details {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: Letter; margin: 16mm 12mm; }
+</style>
+</head>
+<body>
+{% if alt_href %}<div class="lang"><a href="{{ alt_href }}">{{ ui.lang_toggle }}</a></div>{% endif %}
+<main>
+
+<section class="cover">
+  <h1>{{ ui.report_title }}</h1>
+  <div class="sub">{{ ui.report_subtitle }}</div>
+  <dl>
+    <dt>{{ ui.prepared_for }}</dt><dd>{{ meta.organization }}</dd>
+    <dt>{{ ui.generated_on }}</dt><dd>{{ generated_date }}</dd>
+    <dt>{{ ui.grade_label }}</dt><dd>{{ summary.grade }}</dd>
+  </dl>
+  {% if meta.data_mode != "live" %}<div class="mock">{{ ui.data_note_mock }}</div>{% endif %}
+  <p class="notice">{{ ui.confidential_notice }}</p>
+</section>
+
+<h2>{{ ui.section_exec }}</h2>
+<div class="gradebox">
+  <div class="grade" style="background: {{ grade_color }}">{{ summary.grade }}</div>
+  <div>
+    <strong>{{ ui.grade_label }}: {{ summary.grade }}</strong>
+    <p>{{ paragraph }}</p>
+    <div class="counts">
+      {% for p in priorities %}
+      <span class="pill" style="background: {{ colors[p] }}">{{ ui["pri_" ~ p] }}: {{ summary.counts[p] }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<p class="meta">{{ ui.grade_explainer }}</p>
+
+<h2>{{ ui.section_fix_first }}</h2>
+{% for item in fix_first %}
+<div class="card first">
+  <h3><span class="num">{{ loop.index }}</span>{{ item.title }}</h3>
+  <p class="meta">{{ item.clears }} &middot; {{ ui.col_effort }}: {{ item.effort }} &middot;
+     {{ ui.col_assets }}: {{ item.assets | join(", ") }}</p>
+  <p>{{ item.why }}</p>
+  <div class="label"><strong>{{ ui.how_to_fix }}</strong></div>
+  <ol>{% for step in item.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+</div>
+{% else %}
+<p>{{ ui.no_findings }}</p>
+{% endfor %}
+
+{% if spotlight_text %}
+<h2>{{ ui.heading_compare }}</h2>
+<p>{{ ui.compare_intro }}</p>
+<div class="spot">{{ spotlight_text }}</div>
+<table>
+  <tr><th class="n">{{ ui.col_rank }}</th><th>{{ ui.compare_cvss }}</th><th>{{ ui.compare_webscan }}</th></tr>
+  {% for row in comparison %}
+  <tr><td class="n">{{ loop.index }}</td>
+      <td>CVSS {{ row.cvss_score }} &middot; {{ row.cvss_title }} <span class="meta">({{ row.cvss_asset }})</span></td>
+      <td><span class="pill" style="background: {{ colors[row.risk_priority] }}">{{ row.risk_score }}</span>
+          {{ row.risk_title }} <span class="meta">({{ row.risk_asset }})</span></td></tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<h2>{{ ui.section_batches }}</h2>
+<table>
+  <tr><th class="n">{{ ui.col_rank }}</th><th>{{ ui.col_fix }}</th><th class="n">{{ ui.col_clears }}</th>
+      <th>{{ ui.col_assets }}</th><th class="n">{{ ui.col_top_risk }}</th><th class="n">{{ ui.col_total_risk }}</th>
+      <th>{{ ui.col_effort }}</th></tr>
+  {% for b in batches %}
+  <tr><td class="n">{{ loop.index }}</td><td>{{ b.title }}</td><td class="n">{{ b.count }}</td>
+      <td>{{ b.assets | join(", ") }}</td>
+      <td class="n"><span class="pill" style="background: {{ colors[b.priority] }}">{{ b.max_risk }}</span></td>
+      <td class="n">{{ b.total_risk }}</td><td>{{ b.effort }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>{{ ui.section_findings_by_asset }}</h2>
+{% for asset in assets %}
+<h3>{{ asset.alias }}</h3>
+<p class="meta">{% if asset.description %}{{ asset.description }} &middot; {% endif %}{{ asset.exposure }} &middot;
+   {{ asset.criticality }}{% if asset.platform %} &middot; {{ ui.platform_label }}: {{ asset.platform }}{% endif %}
+   {% if not asset.known %} &middot; {{ ui.unlisted_asset }}{% endif %}</p>
+{% for f in asset.findings %}
+<div class="finding" style="border-left-color: {{ colors[f.priority] }}">
+  <h4>
+    <span class="pill" style="background: {{ colors[f.priority] }}">{{ ui["pri_" ~ f.priority] }} {{ f.risk }}</span>
+    {{ f.title }}
+    {% if f.kev %}<span class="badge" title="{{ ui.kev_badge_long }}">KEV</span>{% endif %}
+  </h4>
+  {% if f.kev %}<p class="meta">{{ ui.kev_badge_long }}</p>
+  {% elif f.exploit %}<p class="meta">{{ ui.exploit_badge_long }}</p>{% endif %}
+  <div class="label">{{ ui.what_it_means }}</div><p>{{ f.what }}</p>
+  <div class="label">{{ ui.why_it_matters }}</div><p>{{ f.why }}</p>
+  <div class="label">{{ ui.how_to_fix }}</div>
+  {% if f.platform_note %}
+  <div class="platform">{% if f.controlled %}<strong>{{ ui.platform_controlled_label }}.</strong> {% endif %}{{ f.platform_note }}</div>
+  {% endif %}
+  <ol>{% for step in f.fix %}<li>{{ step }}</li>{% endfor %}</ol>
+  <details>
+    <summary>{{ ui.tech_details }}</summary>
+    <dl>
+      <dt>{{ ui.identifier_label }}</dt><dd><code>{{ f.finding_id }}</code>{% if f.cve %} &middot; {{ f.cve }}{% endif %}
+          &middot; CVSS {{ f.cvss }}{% if f.epss %} &middot; EPSS {{ f.epss }}{% endif %}</dd>
+      <dt>{{ ui.scanner_description }}</dt><dd>{{ f.name }}{% if f.description %}. {{ f.description }}{% endif %}</dd>
+      <dt>{{ ui.sources_label }}</dt><dd>{{ f.sources | join(", ") }} ({{ f.data_source }})</dd>
+      {% if f.evidence %}<dt>{{ ui.evidence_label }}</dt><dd>{{ f.evidence }}</dd>{% endif %}
+      <dt>{{ ui.score_label }}</dt><dd><code>{{ f.formula }}</code>{% if f.override %}<br>{{ ui.override_note }}{% endif %}</dd>
+      {% if f.cis or f.nist %}<dt>CIS / NIST</dt><dd>{{ (f.cis + f.nist) | join(", ") }}</dd>{% endif %}
+      {% if f.references %}<dt>{{ ui.references_label }}</dt><dd>{% for ref in f.references %}{{ ref }}{% if not loop.last %}<br>{% endif %}{% endfor %}</dd>{% endif %}
+    </dl>
+  </details>
+</div>
+{% endfor %}
+{% else %}
+<p>{{ ui.no_findings }}</p>
+{% endfor %}
+
+<h2>{{ ui.section_method }}</h2>
+<p>{{ ui.method_text }}</p>
+
+<h2>{{ ui.section_frameworks }}</h2>
+<p>{{ ui.frameworks_intro }}</p>
+{% for block in frameworks %}
+<h3>{{ block.heading }}</h3>
+<table>
+  <tr><th>{{ ui.col_framework_id }}</th><th>{{ ui.col_framework_title }}</th><th class="n">{{ ui.col_related_findings }}</th></tr>
+  {% for row in block.rows %}
+  <tr><td style="white-space:nowrap">{{ row.id }}</td><td>{{ row.title }}</td><td class="n">{{ row.count }}</td></tr>
+  {% endfor %}
+</table>
+{% endfor %}
+
+<footer>
+  WebScan {{ meta.version }} &middot; {{ ui.generated_on }} {{ generated_date }} &middot; {{ ui.confidential_notice }}
+</footer>
+</main>
+</body>
+</html>

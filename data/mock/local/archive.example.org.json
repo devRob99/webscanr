@@ -1,0 +1,27 @@
+{
+  "http": {
+    "http://archive.example.org/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "Apache/2.4.49 (Unix)"
+      },
+      "body": "<!doctype html><html><head><title>Spring Campaign 2019</title>\n<script src=\"/js/jquery-1.12.4.min.js\"></script></head>\n<body><h1>Thank you for a great campaign</h1><a href=\"/files/\">Downloads</a></body></html>"
+    },
+    "http://archive.example.org/backup.zip": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/zip",
+        "Server": "Apache/2.4.49 (Unix)"
+      },
+      "body": "PK-placeholder-archive-bytes"
+    }
+  },
+  "not_found": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "body": "<html><body>404 Not Found</body></html>"
+  }
+}
