@@ -505,5 +505,31 @@ def dashboard(
     uvicorn.run(create_app(ctx), host=host, port=port, log_level="warning")
 
 
+@app.command()
+def web() -> None:
+    """Start the local web UI (needs: pip install -e ".[web]"). Hosts and ports come from .env."""
+    try:
+        from webscan.web.server import PortInUseError, serve
+        from webscan.web.settings import WebConfigError, WebSettings
+    except ImportError as exc:
+        raise _fail('The web UI needs extra packages. Install them with: pip install -e ".[web]"') from exc
+    settings = load_settings()
+    try:
+        web_settings = WebSettings.from_env(settings.env)
+    except WebConfigError as exc:
+        raise _fail(f"CONFIG ERROR: {exc}") from exc
+    console.print(f"WebScan UI:  [bold]{web_settings.ui_origin}[/bold]")
+    console.print(f"WebScan API: {web_settings.api_origin}/api  (local only)")
+    live = "on" if settings.live_mode_env else "off (demo mode only; set WEBSCAN_LIVE_MODE=true in .env for real scans)"
+    console.print(f"Live scanning: {live}")
+    console.print("Press Ctrl+C to stop.")
+    try:
+        serve(settings, web_settings)
+    except PortInUseError as exc:
+        raise _fail(str(exc)) from exc
+    except ImportError as exc:
+        raise _fail('The web UI needs extra packages. Install them with: pip install -e ".[web]"') from exc
+
+
 if __name__ == "__main__":
     app()

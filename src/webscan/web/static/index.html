@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>WebScan</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div id="demo-banner" class="demo-banner" role="status" hidden>
+    <span><strong>DEMO DATA, not a real scan.</strong> Results are fictional samples for demo.example.com. No requests are sent to any website.</span>
+    <button type="button" id="exit-demo" class="btn btn-small">Exit demo</button>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#/"><span class="brand-mark" aria-hidden="true"></span>WebScan</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="#/domains" data-nav="domains">Domains</a></li>
+          <li><a href="#/scan" data-nav="scan">Scan</a></li>
+          <li><a href="#/history" data-nav="history">History</a></li>
+          <li><a href="#/audit" data-nav="audit">Audit log</a></li>
+          <li><a href="#/policy" data-nav="policy">Usage policy</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="theme-toggle" class="btn btn-small" aria-pressed="false">Dark mode</button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <noscript><p class="notice notice-error">WebScan needs JavaScript to run.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>For authorized security testing only. Scan only sites you own or have written permission to test.
+        <a href="#/policy">Read the usage policy</a>.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

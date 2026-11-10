@@ -60,6 +60,80 @@ Output goes to `output/demo/`: `webscan_findings.json`, `webscan_findings.csv`, 
 `webscan_report_en.html`, `webscan_report_es.html`, and a PDF when a PDF engine is available.
 (On Windows use `.venv\Scripts\` instead of `.venv/bin/`. Requires Python 3.11+.)
 
+## Web UI
+
+A local web interface for the scanner: add a domain, prove you own it, run a passive scan, read the results,
+compare scans, and export reports. It reuses the same checks, scoring, and knowledge base as the CLI.
+
+### Install and start
+
+```bash
+python3 -m venv .venv
+```
+
+```bash
+.venv/bin/pip install -e ".[web,dev]"
+```
+
+```bash
+cp .env.example .env
+```
+
+```bash
+.venv/bin/webscan web
+```
+
+Then open <http://127.0.0.1:5500>. One command starts both servers; stop them with Ctrl+C.
+
+| What | Address | Notes |
+|---|---|---|
+| UI (static files) | `http://127.0.0.1:5500` | Strict Content Security Policy, no inline scripts or styles. |
+| API | `http://127.0.0.1:8000/api` | CORS allows only the UI origin. Every route is under `/api`. |
+
+Both bind to `127.0.0.1` only. Hosts, ports, and limits are read from `.env` (`WEBSCAN_UI_*`, `WEBSCAN_API_*`,
+and the throttling values; see `.env.example`). A non-loopback host such as `0.0.0.0` is refused at startup.
+
+**Try Demo** on the start page works straight away: it replays the bundled mock data for the fictional
+`demo.example.com`, with a simulated progress run, and sends no requests to any website.
+
+**Real scans are off until you turn them on.** Set `WEBSCAN_LIVE_MODE=true` in `.env` and restart. This is the
+same master switch the CLI uses. Without it the server refuses to verify domains or start scans.
+
+### Scanning your own site
+
+1. **Domains → Add domain.** Enter the hostname (for example `www.example.org`). Each hostname is verified
+   separately.
+2. **Verify ownership** with either method, then press **Check Verification**:
+   - DNS: add a TXT record on the domain with the value `scanner-verify=<token>`.
+   - File: serve the token at `https://<domain>/.well-known/scanner-verify.txt`.
+3. **Scan → Start Scan.** Tick the authorization box (asked once, timestamp recorded), choose Quick or Full.
+4. Read the results, export PDF or JSON, and use **History** to compare two scans of the same domain.
+
+`localhost` and `127.0.0.1` (with an optional port, for example `localhost:3000`) can be scanned without
+verification, for testing an app running on this computer.
+
+### Guardrails (enforced by the API, not only by the page)
+
+| Rule | How |
+|---|---|
+| Ownership verification | Random per-domain token; DNS TXT or `/.well-known/` file; expires after `WEBSCAN_VERIFICATION_TTL_DAYS` (30). Unverified or expired domains get HTTP 403. |
+| Authorization acknowledgment | Required before the first scan; timestamp stored and written to the audit log. |
+| Scope | Only the verified host is contacted. Redirects and links to other hosts are never followed. |
+| SSRF protection | The hostname is resolved, every address is checked (private, loopback, link-local, cloud metadata, CGNAT, reserved are blocked), and the connection is pinned to the checked address. IP literals are not accepted as targets. |
+| Non-destructive | Only the existing passive checks run: GET requests, a TLS handshake, DNS lookups. No payloads, logins, form posts, or load testing. |
+| Rate limiting | `WEBSCAN_MAX_REQUESTS_PER_SECOND` per target (2, hard cap 5), `WEBSCAN_MAX_CONCURRENT_SCANS` (2), `WEBSCAN_SCAN_COOLDOWN_SECONDS` between scans of one domain (60), overall `WEBSCAN_SCAN_TIMEOUT_SECONDS` (180). |
+| Identification | Every request sends `User-Agent: WebScan/0.1 (authorized nonprofit security assessment)`. |
+| Cancel | Stops the scan at once and closes any request in flight. |
+| Audit log | The **Audit log** page lists each scan with domain, time, verification method, and result summary. Request-level detail also goes to `logs/audit.jsonl`. |
+
+Quick scan runs the header, TLS, and cookie checks. Full scan adds SPF/DMARC/DKIM, trackers and privacy
+policy, and the short exposed-files list. The donation-page check needs per-asset configuration and stays
+CLI only.
+
+Web UI data (domains, scans, audit log) is stored in `output/web/webscan_ui.sqlite`, which git ignores.
+PDF export uses the same engines as the CLI report (WeasyPrint, Playwright, or a local Chrome/Edge); without
+one, use **Printable report** and print to PDF from the browser.
+
 ## Architecture
 
 ```mermaid
@@ -128,6 +202,7 @@ Environment variables (`.env`, see `.env.example`):
 | `GEOIP_DB_PATH` | `data/reference/GeoLite2-City.mmdb` | Local MaxMind database for the GeoIP stub. |
 | `LOCAL_LLM_URL`, `LOCAL_LLM_MODEL` | `http://localhost:11434`, `llama3.1` | Local model only; non-localhost URLs are refused. |
 | `WEBSCAN_DASHBOARD_TOKENS` | empty | `token:role` pairs for the optional dashboard. |
+| `WEBSCAN_UI_HOST` / `WEBSCAN_UI_PORT` / `WEBSCAN_API_HOST` / `WEBSCAN_API_PORT` | `127.0.0.1` / `5500` / `127.0.0.1` / `8000` | Web UI and API addresses. Loopback only. |
 
 ## Usage
 
@@ -147,6 +222,7 @@ Every command accepts `--operator <name>` (recorded in the audit log). Commands 
 | `webscan refresh-reference-data` | Downloads the public CISA KEV and EPSS files (sends no target data). |
 | `webscan changes` | Later phase: what changed since the previous run. |
 | `webscan dashboard` | Later phase: local read-only dashboard (`pip install -e ".[dashboard]"`). |
+| `webscan web` | Local web UI on `http://127.0.0.1:5500` (`pip install -e ".[web]"`). See [Web UI](#web-ui). |
 
 `--no-redact` (on `scan`, `ingest-quantro`, `prioritize`, `report`, `demo`) writes unredacted output to
 `output/unredacted/`, prints a warning, and is recorded in the audit log.
@@ -204,6 +280,7 @@ known exploit is never ranked below High. Every finding stores the full calculat
 | HackerTarget OpenVAS / Nikto | 🚧 mock only |
 | NVD, RDAP, GeoIP, HIBP, Shodan, reputation, lookalike domains, local LLM | 🚧 stubs with mock data |
 | Dashboard, change detection | 🟡 partial |
+| Web UI with ownership verification, demo mode, history, compare, PDF/JSON export | 🟡 real scans tested against fake transport and localhost only |
 | RBAC beyond tokens, scheduled rescans, clinic mode | 🚧 not started |
 
 Full detail, with what is missing for each: [docs/STATUS.md](docs/STATUS.md).
