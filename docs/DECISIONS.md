@@ -26,6 +26,6 @@ Choices made during the autonomous build where the brief left room. Each can be 
 | D-20 | **PDF engine order:** WeasyPrint → Playwright → locally installed Chrome/Chromium/Edge (headless) → HTML only. WeasyPrint is an optional extra. | WeasyPrint needs native libraries (Pango) that were not present on the build machine; headless Chrome was, and produced the PDF. Chrome is started with background networking disabled and loads only the local file. |
 | D-21 | **Audit log stays redacted even with `--no-redact`.** | The flag is for local report output only. |
 | D-22 | **CSV cells starting with `=`, `+`, `-`, `@` are prefixed with `'`.** | Scanner output is untrusted; this prevents spreadsheet formula injection. |
-| D-23 | **Python 3.14 was used for the virtual environment** (the machine's default); the code targets 3.11+ syntax. | `python3.11` was not on the PATH. Worth one test run on 3.11 before the final demo. |
+| D-23 | **Python 3.14 was used for the virtual environment** (the machine's default); the code targets 3.11+ syntax. | `python3.11` was not on the PATH. The full test suite was also run once on Python 3.11.9 and passed. |
 | D-24 | **`ruff` line-length rule (E501) is ignored.** | Long strings in tests and tables read better unwrapped. |
 | D-25 | **Later-phase scope:** built run history, change detection, and a read-only dashboard; left RBAC, scheduling, and clinic mode as 🚧. | Priority order in the brief. |
